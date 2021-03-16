@@ -15,7 +15,15 @@ function testComponent() {
       <h3>Welcome Future Coders.</h3>
       <h3> Stay tuned with us on our social media profiles.</h3>
       <h3>We are coming soon</h3>
-
+      <a href='https://www.instagram.com/codingcable'>
+        <img src={process.env.PUBLIC_URL + '/insta.svg'} alt="instagram"/>
+        </a>
+        <a href='https://www.facebook.com/CodingCable-100239938797987'>
+        <img src={process.env.PUBLIC_URL + '/fb.svg'} alt="facebook"/>
+        </a>
+        <a href='https://twitter.com/CableCoding'>
+        <img src={process.env.PUBLIC_URL + '/twitter.svg'} alt="twitter"/>
+        </a>
     </div>
   );
 }
