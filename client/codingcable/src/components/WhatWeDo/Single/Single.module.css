@@ -1,0 +1,29 @@
+.single{
+    background:white;
+    width: 300px;
+    padding: 40px;
+    margin: auto;
+    align-self: center;
+}
+.single_title{
+    margin-top: 10px;
+    color:#3B38F1;
+    font-family: apercu;
+    font-weight: 500;
+    font-size: 32px;
+}
+.single_desc{
+    margin-top: 10px;
+    width: 100%;
+    font-family: apercu;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+    .single {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+}
