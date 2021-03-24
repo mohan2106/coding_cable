@@ -12,7 +12,7 @@ function App() {
       <Navbar/>
       <Switch>
         <Route path='/' exact component={Home} />
-        <Route path='/ccdemo' component={Home} />
+        <Route path='/coding_cable' component={Home} />
       </Switch>
       <Footer/>
     </Router>
