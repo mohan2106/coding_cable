@@ -96,26 +96,26 @@ const BookTrial = (props) => {
                             <label className={classes.label} htmlFor='username'>Student Name</label>
                             < ValidationMessage valid={nameValid} message={errorMessage.name} />
                             <input type='text' id='username' name='username' className={classes.form_field}
-                            value={name} onChange={(e) => updateName(e.target.value)}/>
+                            value={name} onChange={(e) => updateName(e.target.value)} placeholder='Enter student name'/>
                         </div>
                         <div className={classes.form_group}>
                             <label className={classes.label} htmlFor='email'>Email</label>
                             < ValidationMessage valid={emailValid} message={errorMessage.email} />
                             <input type='email' id='email' name='email' className={classes.form_field}
-                            value={email} onChange={(e) => updateEmail(e.target.value)}/>
+                            value={email} onChange={(e) => updateEmail(e.target.value)} placeholder='Enter email'/>
                         </div>
                         <div className={classes.phoneclass}>
                             <div className={classes.form_group1}>
                                 <label className={classes.label} htmlFor='phone'>Phone</label>
                                 < ValidationMessage valid={phoneValid} message={errorMessage.phone} />
                                 <input type='phone' id='phone' name='phone' className={classes.form_field} 
-                                value={phone} onChange={(e) => updatePhone(e.target.value)}/>
+                                value={phone} onChange={(e) => updatePhone(e.target.value)} placeholder='Enter Phone Number'/>
                             </div>
                             <div className={classes.form_group2}>
                                 <label className={classes.label} htmlFor='standard'>Class</label>
                                 < ValidationMessage valid={standardValid} message={errorMessage.standard}/>
                                 <input type='text' id='standard' name='standard' className={classes.form_field}
-                                value={standard} onChange={(e) => updateStandard(e.target.value)}/>
+                                value={standard} onChange={(e) => updateStandard(e.target.value)} placeholder='class'/>
                             </div>
                         </div>
                         <div className='form-controls'>

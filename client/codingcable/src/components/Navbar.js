@@ -30,7 +30,7 @@ function Navbar() {
         <IconContext.Provider value={{color:'#6B25D0'}}>
             <div className={classes.navbar}>
                 <div className={`${classes.navbar_container} ${classes.container}`}>
-                    <Link to='/' className={classes.navbar_logo} onClick={closeMobileMenu}>
+                    <Link to='/coding_cable' className={classes.navbar_logo} onClick={closeMobileMenu}>
                         {/* <MdFingerprint className='navbar-icon'/> */}
                         <img src={process.env.PUBLIC_URL + '/Images/logo.svg'} className={classes.navbar_icon} alt="logo" />
                         CODINGCABLE.COM
@@ -61,18 +61,18 @@ function Navbar() {
                         </li>
                         <li className={classes.nav_btn} >
                             {button ? (
-                                <Link1 to='signup' className={classes.btn_link} smooth={true} duration={1000}>
+                                <Link to='/signin' className={classes.btn_link}>
                                     <Button buttonStyle='btn--rounded'>
                                         LogIn/SignUp
                                     </Button>
-                                </Link1>
+                                </Link>
                             ):(
-                                <Link1 to='signup' className={classes.btn_link} onClick={closeMobileMenu} smooth={true} duration={1000}>
+                                <Link to='/signin' className={classes.btn_link} onClick={closeMobileMenu}>
                                     <Button buttonStyle='btn--outline'
                                             buttonSize='btn--mobile'>
                                                 SIGN IN
                                     </Button>
-                                </Link1>
+                                </Link>
                             )}
                         </li>
                     </ul>

@@ -15,7 +15,6 @@
 .item1{
     margin: 16px;
     padding: 40px;
-    /* background: #9492ff4b; */
     width: 40%;
     height: 90%;
     position: relative;
@@ -88,6 +87,7 @@
     font-size: 20px;
     font-family: apercu;
     font-weight: 700;
+    
 }
 .phoneclass{
     display: flex;
@@ -116,6 +116,11 @@
     font-family: apercu;
     font-weight: 500;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(219, 224, 250);
+    opacity: 1; /* Firefox */
+  }
 
 @media screen and (max-width: 1300px) {
     .item1 h2{

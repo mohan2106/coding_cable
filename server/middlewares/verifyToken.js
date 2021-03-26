@@ -29,7 +29,7 @@ export const createToken = async (req, res) => {
     });
 
     res.cookie("token", token, {
-      expires: new Date(Date.now() + 60 * 60),
+      expires: new Date(Date.now() + 60 * 60),    //expiers in 1 hr
       secure: false,
     });
 
