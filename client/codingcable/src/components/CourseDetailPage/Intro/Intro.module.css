@@ -11,14 +11,14 @@
     padding: 80px;
     margin: auto;
 }
-.main h2{
+.mainh2{
     font-size: 48px;
     color: var(--color-blue);
     font-family: spacegrotesk;
     font-weight: 500;
 }
 
-.main p{
+.mainp{
     width: 80%;
     font-size: 24px;
     font-family: apercu;
@@ -27,7 +27,7 @@
 }
 .main img{
     width: 660px;
-    height: 300px;
+    height: auto;
     margin-top: 64px;
     border-radius: 16px;
 }
@@ -40,8 +40,9 @@
 }
 .item{
     flex: 1;
+    margin-top: 20px;
 }
-.item h2{
+.itemh2{
     margin-top: 10px;
     font-size: 48px;
     padding:-5px;
@@ -51,7 +52,7 @@
     font-weight: 500;
 }
 
-.item p{
+.itemp{
     font-size: 18px;
     font-family: apercu;
     font-weight: 500;
@@ -111,8 +112,12 @@
         width: 100%;
         padding: 40px;
     }
-    .main p{
-        margin: 20px auto;
+    .mainh2{
+        font-size: 32px;
+    }
+    .mainp{
+        font-size: 18px;
+        margin: 16px auto;
         width: 100%;
     }
     .main img{
@@ -121,18 +126,18 @@
     .module{
         width: 100%;
     }
-    .item h2{
+    .itemh2{
         margin-top: 0;
         font-size: 32px;
     }
-    .item p{
+    .itemp{
         margin: 0;
         font-size: 16px;
     }
     .verticle{
         height: 60px;
         background: #E0E0EF;
-        margin-top: 10px;
+        margin-top: 20px;
     }
     .header{
         width: 100%;

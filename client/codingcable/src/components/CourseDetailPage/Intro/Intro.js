@@ -5,8 +5,8 @@ import {Button} from '../../Button/Button';
 const Module = (props)=>{
     return (
         <div className={classes.item}>
-            <h2>{props.d1}</h2>
-            <p>{props.d2}</p>
+            <h2 className={classes.itemh2}>{props.d1}</h2>
+            <p className={classes.itemp}>{props.d2}</p>
         </div>
     );
 }
@@ -15,8 +15,8 @@ const Intro = (props) =>{
     return (
         <div className={classes.container}>
             <div className={classes.main}>
-                <h2>{props.title}</h2>
-                <p>{props.disc}</p>
+                <h2 className={classes.mainh2}>{props.title}</h2>
+                <p className={classes.mainp}>{props.disc}</p>
                 <Button buttonStyle='btn--rounded-dark' >
                     Buy This Course
                   </Button>
