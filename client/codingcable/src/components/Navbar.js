@@ -55,9 +55,9 @@ function Navbar() {
                             </Link1>
                         </li>
                         <li className={classes.nav_item}>
-                            <Link1 to='products' onClick={closeMobileMenu} className={classes.nav_links} smooth={true} duration={1000}>
+                            <Link to='/aboutus' onClick={closeMobileMenu} className={classes.nav_links}>
                                 About Us
-                            </Link1>
+                            </Link>
                         </li>
                         <li className={classes.nav_btn} >
                             {button ? (

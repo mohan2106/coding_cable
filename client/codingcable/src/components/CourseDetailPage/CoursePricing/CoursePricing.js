@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import classes from './CoursePricing.module.css';
 import Single from './Single/Single';
 import Form from './Form/Form';

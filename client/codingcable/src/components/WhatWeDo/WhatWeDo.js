@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './WhatWeDo.module.css';
 import Single from './Single/Single';
 import {Button} from '../Button/Button';
+import {Link as Scroll} from 'react-scroll';
 
 function WhatWeDo(props) {
   console.log(classes);
@@ -20,8 +21,9 @@ function WhatWeDo(props) {
           {data}
         </div>
         <div className={classes.btn}>
-          {/* <div className={classes.childbtn}></div> */}
-          <Button buttonStyle='btn--rounded-dark'>More</Button>
+          <Scroll to='booktrial' smooth={true} duration={1000}>
+            <Button buttonStyle='btn--rounded-dark'>Book Free Trial</Button>
+          </Scroll>
         </div>
       </div>
     </>

@@ -1,9 +1,15 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Intro from './Intro/Intro';
 import Content from './CourseContents/Content';
 import CoursePricing from './CoursePricing/CoursePricing';
+import Navbar from '../Navbar';
+import Footer from'../Footer/Footer';
 
 const CourseDetail = ()=>{
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[]);
+    
     const introData = {
         title:'Intro To Coding',
         disc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quasi ullam aliquam, deleniti non voluptatum ex aperiam voluptas sit. Facilis fugit blanditiis repudiandae totam quasi, praesentium placeat consectetur nemo? Incidunt, repellat nostrum iste vitae suscipit earum.',
@@ -130,6 +136,7 @@ const CourseDetail = ()=>{
 
     return (
         <div>
+            <Navbar/>
             <section id="intro">
                 <Intro {...introData}/>
             </section>
@@ -137,6 +144,7 @@ const CourseDetail = ()=>{
             <section id="pricing">
                 <CoursePricing {...pricingdata}/>
             </section>
+            <Footer/>
         </div>
     );
 }

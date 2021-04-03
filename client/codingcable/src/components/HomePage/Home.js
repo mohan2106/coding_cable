@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import TextImageComponent from '../TextImageComponent';
 import {homeObjOne} from './Data';
 import Alumni from '../MentorComp/Mentor';
@@ -6,9 +6,15 @@ import WhatWeDo from '../WhatWeDo/WhatWeDo';
 import Pricing from '../PricingPage/Pricing';
 import RoadMap from '../RoadMap/RoadMap';
 import FAQs from '../FAQs/FAQs';
-import BookTrial from '../BookTrial/BookTrial.js'
+import BookTrial from '../BookTrial/BookTrial.js';
+import Navbar from '../Navbar';
+import Footer from'../Footer/Footer';
 
 const Home = (props) => {
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[]);
+    
     const mentor = [
         {
             img:process.env.PUBLIC_URL + '/Images/iitblogo.svg',
@@ -43,30 +49,34 @@ const Home = (props) => {
         
     ];
 
-    const faqs = [
-        {
-            ques:'What is Coding Cable?',
-            answer:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore cupiditate, quasi ex eum nihil rerum exercitationem nesciunt odio placeat veniam doloremque voluptatibus eveniet animi iusto voluptas illo velit, at eligendi?'
-        },
-        {
-            ques:'What is Coding Cable?',
-            answer:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore cupiditate, quasi ex eum nihil rerum exercitationem nesciunt odio placeat veniam doloremque voluptatibus eveniet animi iusto voluptas illo velit, at eligendi?'
-        },
-        {
-            ques:'What is Coding Cable?',
-            answer:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore cupiditate, quasi ex eum nihil rerum exercitationem nesciunt odio placeat veniam doloremque voluptatibus eveniet animi iusto voluptas illo velit, at eligendi?'
-        },
-        {
-            ques:'What is Coding Cable?',
-            answer:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore cupiditate, quasi ex eum nihil rerum exercitationem nesciunt odio placeat veniam doloremque voluptatibus eveniet animi iusto voluptas illo velit, at eligendi?'
-        },
-        {
-            ques:'What is Coding Cable?',
-            answer:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore cupiditate, quasi ex eum nihil rerum exercitationem nesciunt odio placeat veniam doloremque voluptatibus eveniet animi iusto voluptas illo velit, at eligendi?'
-        }
-    ]
+    const faqdata = {
+        faqs : [
+                {
+                    ques:'What is Coding Cable?',
+                    answer:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore cupiditate, quasi ex eum nihil rerum exercitationem nesciunt odio placeat veniam doloremque voluptatibus eveniet animi iusto voluptas illo velit, at eligendi?'
+                },
+                {
+                    ques:'What is Coding Cable?',
+                    answer:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore cupiditate, quasi ex eum nihil rerum exercitationem nesciunt odio placeat veniam doloremque voluptatibus eveniet animi iusto voluptas illo velit, at eligendi?'
+                },
+                {
+                    ques:'What is Coding Cable?',
+                    answer:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore cupiditate, quasi ex eum nihil rerum exercitationem nesciunt odio placeat veniam doloremque voluptatibus eveniet animi iusto voluptas illo velit, at eligendi?'
+                },
+                {
+                    ques:'What is Coding Cable?',
+                    answer:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore cupiditate, quasi ex eum nihil rerum exercitationem nesciunt odio placeat veniam doloremque voluptatibus eveniet animi iusto voluptas illo velit, at eligendi?'
+                },
+                {
+                    ques:'What is Coding Cable?',
+                    answer:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore cupiditate, quasi ex eum nihil rerum exercitationem nesciunt odio placeat veniam doloremque voluptatibus eveniet animi iusto voluptas illo velit, at eligendi?'
+                }
+            ],
+        viewButton:true,
+    };
     return (
         <div>
+            <Navbar/>
             <section id='home'>
                 <TextImageComponent {...homeObjOne}/>
             </section>
@@ -83,11 +93,12 @@ const Home = (props) => {
                 <RoadMap/>
             </section>
             <section id="faq">
-                <FAQs faqs={faqs}/>
+                <FAQs {...faqdata}/>
             </section>
             <section id="booktrial">
                 <BookTrial/>
             </section>
+            <Footer/>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './FAQs.module.css';
 import Single from './Single/Single';
-import {Button} from '../Button/Button';
+import {Link} from 'react-router-dom';
 
 const FAQs = (props)=>{
     const data = props.faqs.map(ele => {
@@ -13,12 +13,19 @@ const FAQs = (props)=>{
             <h1>Frequently Asked Questions (FAQs)</h1>
             {data}
             </div>
-            <div className={classes.btn}>
-                <button>More</button>
+            {props.viewButton ?
+            <div>
+                <Link to="/faqs">
+                    <div className={classes.btn}>
+                        <button>More</button>
+                    </div>
+                </Link>
+                <div className={classes.floating1}/>
+                <div className={classes.floating2}/>
+                <div className={classes.floating3}/>
             </div>
-            <div className={classes.floating1}></div>
-            <div className={classes.floating2}></div>
-            <div className={classes.floating3}></div>
+                
+            :null}
         </div>
         
     );
