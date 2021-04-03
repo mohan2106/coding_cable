@@ -117,7 +117,15 @@ const CourseDetail = ()=>{
                 actualPrice:'39,999',
                 pricePerClass:'174',
             }
-        ]
+        ],
+        howItWorks:[
+            'You book the trial class.',
+            'One of our Teacher will be assigned to you.',
+            'You will get a link and schedule of your trial class.',
+            'Our Teacher will teach you a concept and you are free to ask any query from them.',
+            'All of our teachers are from IIT\'s.',
+            'Based on your experiance you can enroll in out course.'
+        ],
     };
 
     return (
