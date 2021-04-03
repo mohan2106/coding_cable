@@ -1,3 +1,11 @@
+:root {
+  --color-light: white;
+  --color-blue: #3B38F1;
+  --color-voilet: #9850FF;
+  --color-grey: #F1F1F4;
+  --color-text: black;
+  --color-sec-text: #7D7D91;
+}
 * {
   box-sizing: border-box;
   margin: 0;

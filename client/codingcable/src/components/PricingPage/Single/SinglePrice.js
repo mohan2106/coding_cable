@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './SinglePrice.module.css';
+import {Link} from 'react-router-dom';
 
 const SinglePrice = (props)=>{
     const content = props.contents.map((ele,index)=>{
@@ -18,7 +19,9 @@ const SinglePrice = (props)=>{
             <ul className={classes.list}>
                 {content}
             </ul>
-            <button className={classes.btn}>Learn More</button>
+            <Link to="/courses/id">
+                <button className={classes.btn}>Learn More</button>
+            </Link>
         </div>
     );
 }
