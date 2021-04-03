@@ -1,6 +1,7 @@
 import React from 'react';
 import Intro from './Intro/Intro';
 import Content from './CourseContents/Content';
+import CoursePricing from './CoursePricing/CoursePricing';
 
 const CourseDetail = ()=>{
     const introData = {
@@ -64,12 +65,70 @@ const CourseDetail = ()=>{
         ],
     }
 
+    const pricingdata = {
+        pricings:[
+            {
+                eyecatcher:'BEST BUDGET',
+                pricingimg:process.env.PUBLIC_URL + '/Images/pricing_kid.svg',
+                batchname:'Batch 1',
+                batchdesc:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada fermentum platea ',
+                features:[
+                    {
+                        feature:'12 STUDENT/BATCH',
+                    },
+                    {
+                        feature:'144 CLASSES',
+                    }
+                ],
+                benefits:[
+                    'Competitive coding',
+                    'Live Lecture',
+                    'Regular Test',
+                    'Projects',
+                    'Doubt Sessions'
+                ],
+                off:'37% OFF',
+                discountedPrice:'9,999',
+                actualPrice:'15,999',
+                pricePerClass:'69',
+            },
+            {
+                eyecatcher:'BEST VALUE',
+                pricingimg:process.env.PUBLIC_URL + '/Images/pricing_kid.svg',
+                batchname:'Batch 2',
+                batchdesc:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada fermentum platea ',
+                features:[
+                    {
+                        feature:'4 STUDENT/BATCH',
+                    },
+                    {
+                        feature:'144 CLASSES',
+                    }
+                ],
+                benefits:[
+                    'Competitive coding',
+                    'Live Lecture',
+                    'Regular Test',
+                    'Projects',
+                    'Doubt Sessions'
+                ],
+                off:'37% OFF',
+                discountedPrice:'24,999',
+                actualPrice:'39,999',
+                pricePerClass:'174',
+            }
+        ]
+    };
+
     return (
         <div>
             <section id="intro">
                 <Intro {...introData}/>
             </section>
             <Content {...data}/>
+            <section id="pricing">
+                <CoursePricing {...pricingdata}/>
+            </section>
         </div>
     );
 }

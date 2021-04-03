@@ -3,8 +3,12 @@
   --color-blue: #3B38F1;
   --color-voilet: #9850FF;
   --color-grey: #F1F1F4;
-  --color-text: black;
+  --color-red: #F13838;
+  --color-text: #3D3D5B;
   --color-sec-text: #7D7D91;
+  --color-text-back: #F4F4F9;
+  --color-devider: rgba(125, 125, 145, 0.16);
+  --color-price-grad-pink: linear-gradient(180deg, rgba(255, 65, 129, 0.6) 40.63%, rgba(132, 53, 97, 0.6) 79.49%);
 }
 * {
   box-sizing: border-box;

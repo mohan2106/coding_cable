@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Intro.module.css';
 import {Button} from '../../Button/Button';
+import {Link as ScrollLink} from 'react-scroll';
 
 const Module = (props)=>{
     return (
@@ -17,9 +18,11 @@ const Intro = (props) =>{
             <div className={classes.main}>
                 <h2 className={classes.mainh2}>{props.title}</h2>
                 <p className={classes.mainp}>{props.disc}</p>
-                <Button buttonStyle='btn--rounded-dark' >
-                    Buy This Course
-                  </Button>
+                <ScrollLink to="pricing" smooth={true} duration={1000}>
+                    <Button buttonStyle='btn--rounded-dark' >
+                        Buy This Course
+                    </Button>
+                </ScrollLink>
                   <div>
                     <img src={props.img} alt="intro-img"/>
                   </div>
