@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/coding_cable/static/css/main.0867eb3f.chunk.css",
+    "main.css": "/coding_cable/static/css/main.26bbdab3.chunk.css",
     "main.js": "/coding_cable/static/js/main.1c17a33a.chunk.js",
     "main.js.map": "/coding_cable/static/js/main.1c17a33a.chunk.js.map",
     "runtime-main.js": "/coding_cable/static/js/runtime-main.a8934d48.js",
@@ -10,14 +10,14 @@
     "static/js/3.46b13e95.chunk.js": "/coding_cable/static/js/3.46b13e95.chunk.js",
     "static/js/3.46b13e95.chunk.js.map": "/coding_cable/static/js/3.46b13e95.chunk.js.map",
     "index.html": "/coding_cable/index.html",
-    "static/css/main.0867eb3f.chunk.css.map": "/coding_cable/static/css/main.0867eb3f.chunk.css.map",
+    "static/css/main.26bbdab3.chunk.css.map": "/coding_cable/static/css/main.26bbdab3.chunk.css.map",
     "static/js/2.f4ff758c.chunk.js.LICENSE.txt": "/coding_cable/static/js/2.f4ff758c.chunk.js.LICENSE.txt",
     "static/media/index.css": "/coding_cable/static/media/SpaceGroteskRegular.0af8901c.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.a8934d48.js",
     "static/js/2.f4ff758c.chunk.js",
-    "static/css/main.0867eb3f.chunk.css",
+    "static/css/main.26bbdab3.chunk.css",
     "static/js/main.1c17a33a.chunk.js"
   ]
 }
