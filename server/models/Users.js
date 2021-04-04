@@ -1,0 +1,1 @@
+{"_id":{"$oid":"6068b2ec797f4b2159cba186"},"Name":"MohanJnv","Email":"mohan@cc.com","Phone_Number":"","Hashed_Password":"","Guardian_Details":{"Name":"","Phone_Number":"","Email":""},"Profile_Pic":"","Batches":{}}
