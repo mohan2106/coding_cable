@@ -23,8 +23,16 @@ export const loginController = (req, res, next) => {
     //   if (err) throw err;
     //   console.log("1 document inserted");
     // });
+    console.log(req.body.emailId,req.body.password);
     collection.findOne({ Name: req.body.emailId }, function (err, docs) {
       console.log(docs);
+      if(docs == null){
+        console.log('No User Found');
+        client.close();
+        return res
+        .status(401)
+        .send({ auth: false, message: "User Not Found" });
+      }
       bcrypt.compare(
         req.body.password,
         docs.Hashed_Password,

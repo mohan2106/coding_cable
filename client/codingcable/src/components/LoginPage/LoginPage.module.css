@@ -16,3 +16,15 @@
     text-align: center;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1200px){
+    .container{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 676px){
+    .container{
+        margin: 40px;
+        width: 90%;
+    }
+}

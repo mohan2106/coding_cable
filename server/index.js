@@ -12,6 +12,7 @@ const port = process.env.PORT || "4000";
 export const log = bunyan.createLogger({ name: "backend server" });
 app.set("port", port);
 
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParse());

@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import classes from './Login.module.css';
+import * as axios from "axios";
 
 function ValidationMessage(props) {
     if (!props.valid) {
@@ -114,13 +115,39 @@ const SignUp = (props) => {
         }
         setErrorMessage(errorMsg);
     }
+    const SignUpUser = (event) =>{
+        event.preventDefault();
+        console.log('Login User');
+        var data = JSON.stringify(
+            {
+                "emailId":`${email}`,
+                "password":`${password}`
+            }
+        );
+        var config = {
+            method: 'post',
+            url: 'http://localhost:4000/login',
+            headers: { 
+              'Content-Type': 'application/json',
+            },
+            data : data
+          };
+        axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        
+    }
     return (
         <div className={classes.container}>
             <div className={classes.heading}>
                 <h2>Sign Up</h2>
                 <h4>Get started with us today! Create your account by filling out the information below.</h4>
             </div>
-            <form action='#' id='js-form' className={classes.form}>
+            <form onSubmit={SignUpUser} id='js-form' className={classes.form}>
                 <div className={classes.form_group}>
                     <label className={classes.label} htmlFor='username'>Student Name</label>
                     < ValidationMessage valid={nameValid} message={errorMessage.name} />

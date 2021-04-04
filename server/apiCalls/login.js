@@ -5,7 +5,7 @@ var config = {
   method: 'post',
   url: 'http://localhost:4000/login',
   headers: { 
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   },
   data : data
 };

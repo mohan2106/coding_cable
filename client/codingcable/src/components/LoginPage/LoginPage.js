@@ -8,7 +8,7 @@ const LoginPage = (props) => {
     const [switchText,setSwitchText] = useState(`Don't have account? Register Now`);
     const switchComponent = ()=>{
         setIsLogin(!islogin);
-        if(islogin){
+        if(!islogin){
             setSwitchText(`Don't have account? Register Now`);
         }else{
             setSwitchText(`Already have account? Login Now`);
