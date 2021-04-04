@@ -64,3 +64,16 @@
     color: rgb(219, 224, 250);
     opacity: 1; /* Firefox */
   }
+
+@media screen and (max-width: 1000px){
+    .form_field{
+        background: white;
+        width: 100%;
+        border: none;
+        margin: 10px 0;
+        padding: 40px;
+        color: #3B38F1;
+        padding: 10px;
+        font-size: 20px;
+    }
+}
