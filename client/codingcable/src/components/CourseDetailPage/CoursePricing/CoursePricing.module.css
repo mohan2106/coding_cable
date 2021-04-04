@@ -73,3 +73,46 @@
     color: white;
     margin-top: 10px;
 }
+
+@media screen and (max-width: 1600px){
+    .container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .main{
+        padding: 0;
+    }
+    .container{
+        border-radius: 0;
+        padding: 40px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .container{
+        padding:32px;
+    }
+    .subtitle{
+        width: 100%;
+    }
+    .pricing{
+        flex-direction: column;
+    }
+    .pricingitem{
+        width: 100%;
+        margin: 10px auto;
+    }
+    .booktrial{
+        flex-direction: column;
+    }
+    .item1{
+        width: 100%;
+        margin: 10px auto;
+    }
+    .item2{
+        width:100%;
+        margin: 10px auto;
+    }
+}

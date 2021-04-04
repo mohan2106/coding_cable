@@ -105,3 +105,10 @@
     border-radius: 27px;
     margin: 16px 5px;
 }
+/* ====================================MEDIA QUERY================================== */
+@media screen and (max-width: 1000px){
+    .pricingitem{
+        width: 100%;
+        margin: 10px auto;
+    }
+}
