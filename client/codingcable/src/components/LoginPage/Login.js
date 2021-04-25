@@ -1,5 +1,7 @@
 import React,{useState} from 'react';
 import classes from './Login.module.css';
+import * as axios from "axios";
+
 
 function ValidationMessage(props) {
     if (!props.valid) {
@@ -51,6 +53,34 @@ const Login = (props) => {
             setPasswordValid(true);
         }
         setErrorMessage(errorMsg);
+        validateForm();
+    }
+
+    const LoginUser = (event) =>{
+        event.preventDefault();
+        console.log('Login User');
+        var data = JSON.stringify(
+            {
+                "emailId":`${email}`,
+                "password":`${password}`
+            }
+        );
+        var config = {
+            method: 'post',
+            url: 'http://localhost:4000/login',
+            headers: { 
+              'Content-Type': 'application/json',
+            },
+            data : data
+          };
+        axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        
     }
     
     return (
@@ -59,7 +89,7 @@ const Login = (props) => {
                 <h2>Sign In</h2>
                 <h4>Welcome Back Coder. SignIn and resume your learning.</h4>
             </div>
-            <form action='#' id='js-form' className={classes.form}>
+            <form onSubmit={LoginUser} id='js-form' className={classes.form}>
                 <div className={classes.form_group}>
                     <label className={classes.label} htmlFor='email'>Email</label>
                     < ValidationMessage valid={emailValid} message={errorMessage.email} />
@@ -73,7 +103,7 @@ const Login = (props) => {
                     value={password} onChange={(e) => updatePassword(e.target.value)} placeholder='Password'/>
                 </div>
                 <div className='form-controls'>
-                    <button className={classes.btn} type='submit' disabled={!formValid}>Book Trial Class</button>
+                    <button className={classes.btn} type='submit' disabled={!formValid} onClick={LoginUser}>Book Trial Class</button>
                 </div>
             </form>
                 

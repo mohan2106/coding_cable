@@ -6,7 +6,7 @@ var config = {
   method: 'post',
   url: 'http://localhost:4000/register',
   headers: { 
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   },
   data : data
 };

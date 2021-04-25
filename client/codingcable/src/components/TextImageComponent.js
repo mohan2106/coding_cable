@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './TextImageComponent.module.css';
 import { Button } from './Button/Button';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {Link as Link1} from 'react-scroll';
 
 
