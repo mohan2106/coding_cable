@@ -7,6 +7,9 @@ import loginRouter from "./routes/login.js";
 import homeRouter from "./routes/home.js";
 // import registerRouter from "./routes/register.js";
 import cookieParse from "cookie-parser";
+import { body, checkSchema } from "express-validator";
+import { validate } from "./middlewares/validatorHandler.js";
+import loginSchema from "./models/validationSchemas/loginRequestSchema.js";
 
 import Db from "mongodb";
 
@@ -30,7 +33,6 @@ export const CC_DB_OBJ = client.db("CC_DB1");
 const collection = client.db("CC_DB1").collection("Student");
 log.info("Connected to DB");
 
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParse());
@@ -38,11 +40,12 @@ app.use(cookieParse());
 /* Uncomment in deployment */
 // app.use(cors);
 
-app.use("/login", loginRouter);
+app.use("/login", validate(checkSchema(loginSchema)), loginRouter);
 app.use("/home", homeRouter);
 // app.use("/register",registerRouter);
 
 app.use("*", verifyToken, (req, res) => {
+  console.log(req.body.emailId);
   return res.status(404).json({
     success: true,
     message: "API endpoint doesnt exist",

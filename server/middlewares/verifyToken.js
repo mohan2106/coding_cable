@@ -10,8 +10,14 @@ export const verifyToken = async (req, res, next) => {
     return res.status(403).send({ auth: false, message: "No token provided." });
 
   try {
-    await jsonwebtoken.verify(token, config_secret, (decoded) => {
-      //   req.body.userId = decoded.id;
+    jsonwebtoken.verify(token, config_secret, (err, decoded) => {
+      if (err)
+        return res
+          .status(401)
+          .send({ auth: false, message: "Wrong Credentials." });
+
+      req.body.emailId = decoded.emailId;
+      // console.log(decoded.emailId);
       next();
     });
   } catch (error) {
@@ -24,12 +30,19 @@ export const verifyToken = async (req, res, next) => {
 
 export const createToken = async (req, res) => {
   try {
-    const token = await jsonwebtoken.sign({ id: req.userId }, config_secret, {
-      expiresIn: 15 * 60, // expires in 15 mins
-    });
+    const token = await jsonwebtoken.sign(
+      { emailId: req.body.emailId },
+      config_secret,
+      {
+        expiresIn: 15 * 60, // expires in 15 mins
+      }
+    );
+
+    // console.log(req.body.emailId);
+    var loginTimeStamp = Date.now();
 
     res.cookie("token", token, {
-      expires: new Date(Date.now() + 60 * 60),    //expiers in 1 hr
+      expires: new Date(loginTimeStamp + 60 * 60), //expiers in 1 hr
       secure: false,
     });
 

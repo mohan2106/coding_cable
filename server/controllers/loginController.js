@@ -1,11 +1,15 @@
 import { log } from "../index.js";
 import bcrypt from "bcrypt";
-import {CC_DB_OBJ} from "../index.js";
+import { CC_DB_OBJ } from "../index.js";
 
 export const loginController = (req, res, next) => {
   const collection = CC_DB_OBJ.collection("Student");
-  collection.findOne({ Name: req.body.emailId }, function (err, docs) {
+  collection.findOne({ Email: req.body.emailId }, function (err, docs) {
     log.info(docs);
+    if (!docs)
+      return res
+        .status(401)
+        .send({ auth: false, message: "Wrong Credentials." });
     bcrypt.compare(
       req.body.password,
       docs.Hashed_Password,
@@ -23,13 +27,7 @@ export const loginController = (req, res, next) => {
   });
 };
 
-
-
-
-
-
 /* Prev Code */
-
 
 // log.info(MongoClient);
 
