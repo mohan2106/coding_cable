@@ -1,8 +1,8 @@
-import express from 'express';
-import { resgistrationController } from '../controllers/resgistrationController';
+// import express from 'express';
+// import { resgistrationController } from '../controllers/resgistrationController';
 
-const router = express.Router();
+// const router = express.Router();
 
-router.post('/', resgistrationController);
+// router.post('/', resgistrationController);
 
-export default router;
+// export default router;
