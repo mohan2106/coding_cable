@@ -2,7 +2,8 @@ import React,{useState} from "react";
 import Editor from "rich-markdown-editor";
 
 function BlogEditor() {
-    const [value,setValue] = useState('');
+    var [value,setValue] = useState('');
+
 
   return (
     <div>
@@ -13,7 +14,8 @@ function BlogEditor() {
         // const result = await s3.upload(file);
         return "https://image.shutterstock.com/image-photo/gradient-glowing-royal-blue-background-260nw-372859843.jpg";
       }}
-      onSave = { done => {console.log(value)}}
+      onSave = { done => {console.log(value);}}
+      onChange = {value => {setValue(value());}}
       />
     </div>
   );
