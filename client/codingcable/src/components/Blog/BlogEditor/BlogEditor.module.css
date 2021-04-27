@@ -1,0 +1,135 @@
+.container{
+    width: 50%;
+    margin: auto;
+    font-family: apercu;
+}
+.heading{
+    font-size: var(--font-xxl);
+    text-align: center;
+    font-weight: var(--font-w-dark);
+    color: var(--color-blue);
+    margin-top: 40px;
+}
+.titlecontainer{
+    margin-top: 80px;
+}
+.label{
+    font-size: var(--font-s);
+    margin-top: 10px;
+}
+.title{
+    font-size: var(--font-xl);
+    padding: 20px;
+    width: 100%;
+    font-family: spacegrotesk;
+    font-weight: var(--font-w-dark);
+    line-height: 1.2em;
+    border-radius: 4px;
+}
+.desccontainer{
+    margin-top: 40px;
+}
+.desc{
+    font-size: var(--font-xs);
+    font-weight: var(--font-w-x-light);
+    margin: 10px 0;
+    width: 100%;
+    padding: 20px;
+    border-radius: 4px;
+}
+.user{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 20px auto;
+}
+.item1{
+    width: 50px;
+}
+.userImage{
+    width: auto;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+.item2{
+    margin-left: 10px;
+}
+.username{
+    font-size: var(--font-xxs);
+    font-weight: var(--font-w-dark);
+}
+.date{
+    font-size: var(--font-xxxs);
+}
+.titleimage{
+    max-width: 100%;
+    max-height: 400px;
+    vertical-align: middle;
+}
+.imageUpload{
+    width: 100%;
+    margin: 20px auto;
+}
+.content{
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 4px;
+}
+
+.submit{
+    height: 62px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-blue);
+    color: #fff;
+    cursor: pointer;
+    font-size: var(--font-xs);
+    margin: 80px auto;
+}
+.submit:hover{
+    border: 2px solid var(--color-blue);
+    background-color: var(--color-white);
+    color: var(--color-blue);
+}
+
+@media screen and (max-width: 1300px){
+    .container{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 1100px){
+    .container{
+        width: 70%;
+    }
+}
+@media screen and (max-width: 900px){
+    .container{
+        width: 80%;
+    }
+    .heading{
+        font-size: var(--font-xl);
+    }
+}
+@media screen and (max-width: 700px){
+    .container{
+        width: 90%;
+    }
+    .title{
+        font-size: var(--font-l);
+    }
+    .heading{
+        font-size: var(--font-l);
+    }
+}
+@media screen and (max-width: 500px){
+    .title{
+        font-size: var(--font-m);
+        line-height: 1em;
+    }
+    .heading{
+        font-size: var(--font-m);
+    }
+}

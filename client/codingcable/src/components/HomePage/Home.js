@@ -8,7 +8,7 @@ import RoadMap from '../RoadMap/RoadMap';
 import FAQs from '../FAQs/FAQs';
 import BookTrial from '../BookTrial/BookTrial.js';
 import Navbar from '../Navbar';
-import Footer from'../Footer/Footer';
+
 
 const Home = (props) => {
     useEffect(()=>{
@@ -98,7 +98,6 @@ const Home = (props) => {
             <section id="booktrial">
                 <BookTrial/>
             </section>
-            <Footer/>
         </div>
     )
 }

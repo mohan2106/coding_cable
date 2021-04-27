@@ -7,7 +7,8 @@ import CourseDetail from './components/CourseDetailPage/CourseDetail';
 import FAQPage from './components/FAQPage/FAQPage';
 import AboutUsPage from './components/AboutUsPage/AboutUs';
 import Dashboard from './components/Dashboard/Dashboard';
-import Editor from './components/Blog/BlogEditor.js'
+import Footer from'./components/Footer/Footer';
+import Blogs from './components/Blog/Blogs';
 
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
         <Route path='/faqs' exact component={FAQPage}/>
         <Route path='/aboutus' exact component={AboutUsPage}/>
         <Route path='/dashboard/:id' exact component={Dashboard}/>
-        <Route path='/blogeditor/' exact component={Editor}/>
+        <Route path='/blogs' component={Blogs}/>
       </Switch>
+      <Footer/>
     </Router>
   );
 }
