@@ -8,10 +8,15 @@
     text-align: center;
     font-weight: var(--font-w-dark);
     color: var(--color-blue);
-    margin-top: 40px;
+    margin-top: 10px;
+}
+.error{
+    color: red;
+    text-align: end;
+    margin-top: 60px;
 }
 .titlecontainer{
-    margin-top: 80px;
+    margin-top: 20px;
 }
 .label{
     font-size: var(--font-s);

@@ -20,6 +20,7 @@ function BlogEditor() {
   const [titleImage,setTitleImage] = useState(null);
   const [imagePreview,setImagePreview] = useState('');
   const [MDValue,setMDValue] = useState('');
+  const [formValid,setFormValid] = useState(false);
 
   const fileChangedHandler = (event) => {
     const file = event.target.files[0];
@@ -36,9 +37,19 @@ function BlogEditor() {
 
   }
 
+  const handleSubmit = () => {
+    if(title.length >0 && desc.length >0 && titleImage !== null && MDValue.length >0 ){
+      setFormValid(true);
+    }else{
+      setFormValid(false);
+      console.log('Form is Invalid');
+    }
+  }
+
   return (
     <div className={classes.container}>
             <div className={classes.heading}>Add Blog</div>
+            {formValid ? null : <div className={classes.error}>Please Fill All the Field</div>}
             <div className={classes.titlecontainer}>
               <label className={classes.label}>Blog Title*</label>
               <input className={classes.title} value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter Blog Title"/>
@@ -68,7 +79,7 @@ function BlogEditor() {
                 onChange = {value => {setMDValue(value());}}
               />
             </div>
-            <button className={classes.submit}>Submit Blog</button>
+            <button className={classes.submit} onClick={handleSubmit}>Submit Blog</button>
             
         </div>
   );
