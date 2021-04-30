@@ -21,6 +21,9 @@ export const loginController = (req, res, next) => {
         }
 
         // Now we can store the password hash in db.
+        let User = { emailId: docs.Email, name: docs.Name };
+
+        req.body.user = User;
         next();
       }
     );
