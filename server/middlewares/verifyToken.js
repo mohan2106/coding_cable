@@ -46,7 +46,7 @@ export const createToken = async (req, res) => {
       secure: false,
     });
 
-    return res.status(200).send({ auth: true });
+    return res.status(200).send({ auth: true, user:req.body.user });
   } catch (error) {
     return res.status(500).send({ auth: false, message: "Failed to Login." });
   }

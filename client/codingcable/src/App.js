@@ -43,7 +43,7 @@ import {getUser} from './redux/index';
 
 function App() {
   useEffect(()=>{
-    // store.dispatch(getUser());
+    store.dispatch(getUser());
   },[])
   return (
     <Provider store={store}>
