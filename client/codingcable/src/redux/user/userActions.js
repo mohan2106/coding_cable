@@ -29,7 +29,7 @@ const fetchUserFailure = error => {
 export const login = (userData) => {
     return (dispatch)=>{
         dispatch(fetchUserRequest());
-        axios.post('http://localhost:4000/login',userData)
+        axios(userData)
         .then(response => {
             const users = response.data;
             dispatch(fetchUserSuccess(users));

@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import classes from './Login.module.css';
 import * as axios from "axios";
+import {login} from '../../redux/index';
+import { connect } from "react-redux";
 
 
 function ValidationMessage(props) {
@@ -62,7 +64,8 @@ const Login = (props) => {
         var data = JSON.stringify(
             {
                 "emailId":`${email}`,
-                "password":`${password}`
+                "password":`${password}`,
+                "loginIPaddress": '255.255.255.255',
             }
         );
         var config = {
@@ -73,13 +76,7 @@ const Login = (props) => {
             },
             data : data
           };
-        axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        props.Login(config);
         
     }
     
@@ -111,4 +108,18 @@ const Login = (props) => {
     );
 }
 
-export default Login;
+
+const mapStateToProps = state =>{
+    return {
+        userData: state.user
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        Login : (data) => dispatch(login(data))
+    }
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login);
