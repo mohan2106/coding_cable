@@ -5,6 +5,8 @@ import bunyan from "bunyan";
 import { verifyToken } from "./middlewares/verifyToken.js";
 import loginRouter from "./routes/login.js";
 import homeRouter from "./routes/home.js";
+import blogRouter from "./routes/blogs.js";
+import getuserRouter from "./routes/getuser.js";
 // import registerRouter from "./routes/register.js";
 import cookieParse from "cookie-parser";
 import { body, checkSchema } from "express-validator";
@@ -42,15 +44,18 @@ app.use(cookieParse());
 
 app.use("/login", validate(checkSchema(loginSchema)), loginRouter);
 app.use("/home", homeRouter);
+app.use("/blogs", blogRouter);
 // app.use("/register",registerRouter);
 
-app.use("*", verifyToken, (req, res) => {
-  console.log(req.body.emailId);
-  return res.status(404).json({
-    success: true,
-    message: "API endpoint doesnt exist",
-  });
-});
+app.use(verifyToken);
+// app.use("*", verifyToken, (req, res) => {
+//   console.log(req.body.emailId);
+//   return res.status(404).json({
+//     success: true,
+//     message: "API endpoint doesnt exist",
+//   });
+// });
+app.use("/getuser",getuserRouter);
 
 // HTTP Server
 const server = http.createServer(app);
