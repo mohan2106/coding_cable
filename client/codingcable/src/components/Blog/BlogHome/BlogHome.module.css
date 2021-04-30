@@ -1,0 +1,89 @@
+.single{
+    border: 2px solid black;
+    border: 4px;
+    padding: 20px 40px;
+    width: 50%;
+    margin: auto;
+    font-family: apercu;
+}
+.blogsContainer{
+    margin-top: 40px;
+}
+
+.singlecontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.item1{
+    width: 79%;
+}
+.item2{
+    width: 20%;
+}
+
+.username{
+    font-size: var(--font-xxxxs);
+    font-weight: var(--font-w-light);
+}
+.title{
+    font-size: var(--font-s);
+    font-weight: var(--font-w-dark);
+}
+.desc{
+    font-size: var(--font-xxs);
+    font-weight: var(--font-w-x-light);
+}
+.date{
+    margin-top: 10px;
+    font-size: var(--font-xxxxs);
+    font-weight: var(--font-w-light);
+}
+.banner{
+    width: 100%;
+    background: #1FABF1;
+    text-align: center;
+    height: 300px;
+}
+.blogs{
+    text-align: center;
+    margin: auto;
+}
+.blogImg{
+    height: 300px;
+}
+
+.line{
+    background-color: var(--color-devider);
+    margin-top: 20px;
+    height: 1px;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 1300px){
+    .single{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 1100px){
+    .single{
+        width: 70%;
+    }
+}
+@media screen and (max-width: 900px){
+    .single{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 700px){
+    .single{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 500px){
+    .single{
+        width: 100%;
+    }
+}

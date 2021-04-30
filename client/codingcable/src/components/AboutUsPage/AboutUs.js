@@ -1,6 +1,5 @@
 import React,{useEffect} from 'react';
 import Navbar from '../Navbar';
-import Footer from'../Footer/Footer';
 
 const AboutUs = () => {
     useEffect(()=>{
@@ -10,7 +9,7 @@ const AboutUs = () => {
         <div>
             <Navbar/>
             <h1>This is about us page</h1>
-            <Footer/>
+            
         </div>
     );
 }

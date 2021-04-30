@@ -3,7 +3,6 @@ import Intro from './Intro/Intro';
 import Content from './CourseContents/Content';
 import CoursePricing from './CoursePricing/CoursePricing';
 import Navbar from '../Navbar';
-import Footer from'../Footer/Footer';
 
 const CourseDetail = ()=>{
     useEffect(()=>{
@@ -137,14 +136,13 @@ const CourseDetail = ()=>{
     return (
         <div>
             <Navbar/>
-            <section id="intro">
-                <Intro {...introData}/>
-            </section>
-            <Content {...data}/>
-            <section id="pricing">
-                <CoursePricing {...pricingdata}/>
-            </section>
-            <Footer/>
+                <section id="intro">
+                    <Intro {...introData}/>
+                </section>
+                <Content {...data}/>
+                <section id="pricing">
+                    <CoursePricing {...pricingdata}/>
+                </section>
         </div>
     );
 }
