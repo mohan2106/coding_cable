@@ -5,12 +5,28 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import {IconContext} from 'react-icons/lib';
 import {Button} from './Button/Button.js';
 import classes from './Navbar.module.css';
+import debounce from '../utils/debounce.js';
+import {motion} from 'framer-motion';
 
 function Navbar({showLink = true}) {
     const [click,setClick] =  useState(false);
     const [button,setButton] =  useState(true);
     const handleClick = ()=>setClick(!click);
     // const handleButton = ()=>setButton(!button);
+    const [hideNavbar, setHideNavbar] = useState(false);
+    const [prevScrollpos, setPrevScrollpos] = useState(0);
+
+    const onScrollHandleNavbar=()=>{
+        const currentScrollpos = window.pageYOffset;
+        if(prevScrollpos > currentScrollpos){
+            setHideNavbar(true);
+        }else{
+            setHideNavbar(false);
+        }
+        setPrevScrollpos(currentScrollpos);
+    }
+
+    window.addEventListener('scroll', debounce(onScrollHandleNavbar, 200));
 
     const closeMobileMenu = ()=> setClick(false);
 
@@ -28,7 +44,7 @@ function Navbar({showLink = true}) {
     return (
         <>
         <IconContext.Provider value={{color:'#6B25D0'}}>
-            <div className={classes.navbar}>
+            <motion.div initial={hideNavbar? {y:'-10vh'}:{y:'0vh'}} animate={hideNavbar? {y:'0vh'}:{y:'-10vh'}} className={classes.navbar}>
                 <div className={`${classes.navbar_container} ${classes.container}`}>
                     <Link to='/coding_cable' className={classes.navbar_logo} onClick={closeMobileMenu}>
                         {/* <MdFingerprint className='navbar-icon'/> */}
@@ -80,7 +96,7 @@ function Navbar({showLink = true}) {
                         </ul> 
                     </div>  : null}
                 </div> 
-            </div>
+            </motion.div>
             </IconContext.Provider>
         </>
     )
