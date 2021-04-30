@@ -5,6 +5,7 @@ import App from './App';
 // import routes from './routes';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 // import { BrowserRouter } from 'react-router-dom';
 // import reportWebVitals from './reportWebVitals';
 

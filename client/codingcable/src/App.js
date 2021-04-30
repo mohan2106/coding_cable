@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import React,{useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/HomePage/Home';
 import Login from './components/LoginPage/LoginPage';
@@ -14,6 +15,9 @@ import Blogs from './components/Blog/Blogs';
 // import { setCurrentUser, logoutUser } from "./redux/user/userActions";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+
+import {getUser} from './redux/index';
+
 
 // //fetch current user
 // if (localStorage.jwtToken) {
@@ -35,7 +39,12 @@ import store from "./redux/store";
 // }
 
 
+
+
 function App() {
+  useEffect(()=>{
+    // store.dispatch(getUser());
+  },[])
   return (
     <Provider store={store}>
       <Router>

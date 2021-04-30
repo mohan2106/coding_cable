@@ -29,7 +29,7 @@ const failureFaqTop5 = error => {
 export const FaqTop5 = () => {
     return (dispatch)=>{
         dispatch(requestFaqTop5());
-        axios.get('/home/faqTop5')
+        axios.get('http://localhost:4000/home/faqTop5')
         .then(response => {
             const faq = response.data;
             dispatch(successFaqTop5(faq));

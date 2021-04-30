@@ -1,7 +1,8 @@
 import {
     LOGIN_USER_REQUEST,
     LOGIN_USER_SUCCESS,
-    LOGIN_USER_FAILURE} from './userTypes';
+    LOGIN_USER_FAILURE,
+    } from './userTypes';
 import axios from 'axios';
 
 export const fetchUserRequest = () => {
@@ -24,10 +25,11 @@ const fetchUserFailure = error => {
     }
 }
 
-export const login = () => {
+
+export const login = (userData) => {
     return (dispatch)=>{
         dispatch(fetchUserRequest());
-        axios.post('/login')
+        axios.post('http://localhost:4000/login',userData)
         .then(response => {
             const users = response.data;
             dispatch(fetchUserSuccess(users));
@@ -38,18 +40,20 @@ export const login = () => {
     }
 }
 
-// export const setCurrentUser = decoded => {
-//     return {
-//       type: SET_CURRENT_USER,
-//       payload: decoded
-//     };
-//   };
+// ========================================GET USER USING COOKIES===============
 
-//   export const logoutUser = () => dispatch => {
-//     // Remove token from local storage
-//     localStorage.removeItem("jwtToken");
-//     // Remove auth header for future requests
-//     setAuthToken(false);
-//     // Set current user to empty object {} which will set isAuthenticated to false
-//     dispatch(setCurrentUser({}));
-//   };
+export const getUser = () => {
+    return (dispatch)=>{
+        dispatch(fetchUserRequest());
+        axios.post('http://localhost:4000/getuser')
+        .then(response => {
+            const users = response.data;
+            console.log(users);
+            dispatch(fetchUserSuccess(users));
+        }).catch(error => {
+            const errorMsg = error.message;
+            dispatch(fetchUserFailure(errorMsg));
+            console.log(error);
+        })
+    }
+}

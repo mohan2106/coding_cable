@@ -29,7 +29,7 @@ const failureCourseCatalog = error => {
 export const courseCatalog = () => {
     return (dispatch)=>{
         dispatch(requestCourseCatalog());
-        axios.get('/home/courseCatalog')
+        axios.get('http://localhost:4000/home/courseCatalog')
         .then(response => {
             const courseCatalog = response.data;
             dispatch(successCourseCatalog(courseCatalog));

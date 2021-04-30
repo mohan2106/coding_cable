@@ -2,7 +2,7 @@ import express from "express";
 import { getBlog } from "../controllers/blogs/getBlogController.js";
 import { getRange } from "../controllers/blogs/getRangeController.js";
 import { postBlog } from "../controllers/blogs/postBlogController.js";
-import { verifyToken } from "./middlewares/verifyToken.js";
+import { verifyToken } from "../../middlewares/verifyToken.js";
 
 const router = express.Router();
 

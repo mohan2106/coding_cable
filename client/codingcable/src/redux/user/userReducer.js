@@ -8,7 +8,7 @@ const initialState = {
     loading : false,
     isAuthenticated : false,
     user : {},
-    errors : ''
+    error : ''
 }
 
 const userReducer = (state = initialState,action) => {
@@ -30,7 +30,7 @@ const userReducer = (state = initialState,action) => {
             return {
                 loading : false,
                 error : action.payload,
-                users : [],
+                user : {},
             }
         }
         default : return state;
