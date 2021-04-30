@@ -18,6 +18,7 @@ export const postBlog = (req, res, next) => {
       Description: req.body.Description,
       UserEmailID: req.body.emailId, //Added to req in verify token
       UserName: user.Name,
+      UserImage: "https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       Content: req.body.Content,
       TimeStamp: creationTimeStamp,
       TextLength: req.body.Content.length,
