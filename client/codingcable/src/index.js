@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 // import routes from './routes';
+import axios from 'axios';
+axios.defaults.withCredentials = true;
 // import { BrowserRouter } from 'react-router-dom';
 // import reportWebVitals from './reportWebVitals';
 

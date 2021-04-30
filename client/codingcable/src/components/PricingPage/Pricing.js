@@ -1,9 +1,15 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import classes from './Pricing.module.css';
 import './pricing_temp.css';
 import SinglePrice from './Single/SinglePrice';
+import {connect} from 'react-redux';
+import {courseCatalog} from '../../redux/index';
 
-const Pricing = ()=>{
+const Pricing = (props)=>{
+
+    useEffect(()=>{
+        props.fetchCourseCatalog();
+    },[]);
     const [leftbtn,setleftbtn] = useState(['switch_button_case', 'left', 'active_case']);
     const [rightbtn,setrightbtn] = useState(['switch_button_case', 'right']);
     const [isLeft,setIsLeft] = useState(true);
@@ -36,8 +42,14 @@ const Pricing = ()=>{
         <div className={classes.items}><SinglePrice title='Intermediate' contents={content}/></div>
     </div>);
     
+    const load = (
+        <div>
+            Loading Data
+        </div>
+    );
     return (
         <div className={classes.container}>
+            {props.courseCatalogData.loading ? load : 
             <div className={classes.pricing}>
                 <div className={classes.head}>
                     <p className={`${classes.head_item} ${classes.title}`}>
@@ -58,9 +70,23 @@ const Pricing = ()=>{
                 class12
                 }
                 
-            </div>
+            </div>}
         </div>
     );
 }
 
-export default Pricing;
+
+const mapStateToProps = state =>{
+    return {
+        courseCatalogData: state.courseCatalog
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchCourseCatalog : () => dispatch(courseCatalog())
+    }
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Pricing);

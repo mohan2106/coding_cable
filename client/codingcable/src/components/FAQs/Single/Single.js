@@ -17,7 +17,7 @@ const Single = (props)=>{
         <IconContext.Provider value={{color:'black'}}>
             <div>
             <div className={classes.accordion} onClick={toggle}>
-                <h5>{props.ques}</h5>
+                <h5>{props.Quetion}</h5>
                 { isOpen ? <FaChevronUp className={classes.icon}/> 
                 : <FaChevronDown className={classes.icon}/>
                 }
@@ -30,7 +30,7 @@ const Single = (props)=>{
             >
                 <div 
                     className={classes.panel}
-                    dangerouslySetInnerHTML={{ __html: props.answer }}
+                    dangerouslySetInnerHTML={{ __html: props.Answer }}
                 />
             </div>
         </div>
