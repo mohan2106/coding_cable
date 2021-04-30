@@ -18,7 +18,9 @@ function Navbar({showLink = true}) {
 
     const onScrollHandleNavbar=()=>{
         const currentScrollpos = window.pageYOffset;
-        if(prevScrollpos > currentScrollpos){
+        //if mobile view is on and click is true then don't hide
+        //following condition takes care of that thing
+        if((button || !click)&&(prevScrollpos < currentScrollpos)){
             setHideNavbar(true);
         }else{
             setHideNavbar(false);
@@ -44,7 +46,7 @@ function Navbar({showLink = true}) {
     return (
         <>
         <IconContext.Provider value={{color:'#6B25D0'}}>
-            <motion.div initial={hideNavbar? {y:'-10vh'}:{y:'0vh'}} animate={hideNavbar? {y:'0vh'}:{y:'-10vh'}} className={classes.navbar}>
+            <motion.div initial={hideNavbar? {y:'0vh'}:{y:'-20vh'}} animate={hideNavbar? {y:'-20vh'}:{y:'0vh'}} className={classes.navbar}>
                 <div className={`${classes.navbar_container} ${classes.container}`}>
                     <Link to='/coding_cable' className={classes.navbar_logo} onClick={closeMobileMenu}>
                         {/* <MdFingerprint className='navbar-icon'/> */}
