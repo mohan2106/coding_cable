@@ -1,0 +1,130 @@
+.faqcontainer{
+    align-content: center;
+    position: relative;
+}
+
+.container_fluid{
+    width: 60%;
+    margin: 100px auto 50px auto;
+}
+
+.container_fluid h1{
+    color: #3B38F1;
+    text-align: center;
+    font-family: apercu;
+    font-weight: 900;
+    font-size: 52px;
+    margin: 40px;
+}
+.accordion{
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgb(212, 211, 211);
+    cursor: pointer;
+    border-radius: 16px;
+    display: flex;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.accordion .icon{
+    margin: 0 10px 0 0 ;
+    width: 30px;
+    height: 30px;
+}
+
+.btn{
+    text-align: center;
+}
+.btn button{
+    height: 56px;
+    width: 200px;
+    padding: 16px 50px;
+    border: none;
+    border-radius: 28px;
+    background: linear-gradient(90.0deg, #9850FF 0.61%, #3B38F1 93.64%);
+    color: #fff;
+    transition: all 0.3s ease-out;
+    font-family: apercu;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.btn button:hover{
+    background: white;
+    border: 1px solid #3B38F1;
+    color: #3B38F1;
+    transition: all 0.3s ease-out;
+}
+
+.floating1{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #FF4181 40.63%, #843561 79.49%);
+    transform: matrix(-0.11, 0.99, 0.99, 0.11, 0, 0);
+    position: absolute;
+    left: 5%;
+    top: 15%;
+}
+
+.floating2{
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(137.8deg, #E4E08E 16.28%, #6FA953 61.81%);
+    border-radius: 2.89177px;
+    transform: rotate(156.67deg);
+    position: absolute;
+    right: 5%;
+    top: 25%;
+}
+
+.floating3{
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(180deg, #FFCE47 39.09%, #FF9356 75.67%);
+    border-radius: 2.89177px;
+    transform: rotate(156.67deg);
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+}
+
+@media screen and (max-width: 1200px) {
+    .container_fluid{
+        width: 75%;
+        margin: 50px auto 50px auto;
+    }
+    .floating2{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .container_fluid{
+        width: 90%;
+        margin: 50px auto 50px auto;
+    
+    }
+    .container_fluid h1{
+        color: #3B38F1;
+        text-align: center;
+        font-size: 36px;
+        margin: 20px;
+    }
+    .btn button{
+        width: 60%;
+    }
+    .floating1{
+        display: none;
+    }
+    .floating2{
+        display: none;
+    }
+    .floating3{
+        display: none;
+    }
+    
+  }

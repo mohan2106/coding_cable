@@ -1,0 +1,300 @@
+.container{
+    position: relative;
+}
+.roadmap{
+    position: relative;
+    margin: 50px auto;
+    padding:40px 0;
+    width: 50%;    
+}
+.roadmap:before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background:#3B38F1;
+}
+.finish{
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    margin: -20px auto 0 auto;
+}
+.imgcont{
+    align-content: center;
+}
+.roadmap ul{
+    margin: 0;
+    padding: 0;
+}
+
+.roadmap ul li{
+    list-style: none;
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    margin: -40px;
+    box-sizing: border-box;
+}
+
+.roadmap ul li:nth-child(odd){
+    float: left;
+    text-align: right;
+    clear: both;
+}
+.roadmap ul li:nth-child(even){
+    float: right;
+    text-align: left ;
+    clear: both;
+}
+
+.content1{
+    background: #F5EBFD;
+    border-radius: 16px;
+    padding: 32px 24px;
+    transition: all 0.2s ease-out;
+}
+.content1 h3{
+    color:#8D22E5;
+    font-family: apercu;
+    font-weight: 500;
+    font-size: 28px;
+    padding: 0 0 16px 0;
+
+}
+.content1 p{
+    font-family: apercu;
+    font-weight: 500;
+}
+
+.content2{
+    background: #E7F9E5;
+    border-radius: 16px;
+    padding: 32px 24px;
+    transition: all 0.2s ease-out;
+}
+.content2 h3{
+    color:#40CC33;
+    font-family: apercu;
+    font-weight: 500;
+    font-size: 28px;
+    padding: 0 0 16px 0;
+}
+
+.content3{
+    background: #FFECF0;
+    border-radius: 16px;
+    padding: 32px 24px;
+    transition: all 0.2s ease-out;
+}
+.content1:hover{
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
+}
+.content2:hover{
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
+}
+.content3:hover{
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
+}
+.content3 h3{
+    color:#FF436F;
+    font-family: apercu;
+    font-weight: 500;
+    font-size: 28px;
+    padding: 0 0 16px 0;
+}
+.content2 p{
+    font-family: apercu;
+    font-weight: 500;
+}
+
+.content3 p{
+    font-family: apercu;
+    font-weight: 500;
+}
+
+
+.title{
+    margin: 80px auto -20px auto;
+    text-align: center;
+    color: #3B38F1;
+    font-family: apercu;
+    font-weight: 700;
+}
+.roadmap ul li:nth-child(odd):before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -50px;
+    background: #3B38F1;
+    border-radius: 50%;
+}
+.roadmap ul li:nth-child(even):before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: -50px;
+    background: #3B38F1;
+    border-radius: 50%;
+}
+p{
+    line-height: 24px;
+}
+
+.floating1{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #FF4181 40.63%, #843561 79.49%);
+    transform: matrix(-0.11, 0.99, 0.99, 0.11, 0, 0);
+    position: absolute;
+    right: 30%;
+    top: 15%;
+}
+
+.floating2{
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(180deg, #FFCE47 39.09%, #FF9356 75.67%);
+    transform: matrix(0.35, -0.93, -0.93, -0.35, 0, 0);
+    position: absolute;
+    right: 15%;
+    top: 45%;
+}
+
+.floating3{
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(180deg, #FF755C 31.78%, #FF4181 53.44%);
+    transform: matrix(0.35, -0.93, -0.93, -0.35, 0, 0);
+    position: absolute;
+    left: 15%;
+    top: 20%;
+}
+.floating4{
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(180deg, #7ACBFF 20.91%, #45A2E0 61.13%);
+    border-radius: 5px;
+    transform: matrix(0.92, 0.4, 0.4, -0.92, 0, 0);
+    position: absolute;
+    left: 30%;
+    top: 50%;
+}
+.floating5{
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(180deg, #FF4181 40.63%, #843561 79.49%);
+    transform: rotate(83.62deg);
+    border-radius: 50%;
+    position: absolute;
+    right: 30%;
+    bottom: 20%;
+}
+.triangle{
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid yellow;
+    transform: rotate(90deg);
+    position: absolute;
+    left: 15%;
+    bottom: 15%;
+}
+@media screen and (max-width: 1500px) {
+    .roadmap{
+        width: 65%;
+    }
+    .floating2{
+        display: none;
+    }
+    .floating3{
+        display: none;
+    }
+    .triangle{
+        display: none;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .roadmap{
+        width: 80%;
+    }
+    .floating2{
+        display: none;
+    }
+    .floating3{
+        display: none;
+    }
+    .triangle{
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .roadmap{
+        position: relative;
+        margin: 40px auto;
+        padding: 40px 0;
+        width: 100%;    
+    }
+    .roadmap ul{
+        margin: 40px 0;
+    }
+    .roadmap ul li{
+        list-style: none;
+        position: relative;
+        width: 100%;
+        padding: 20px 40px;
+        margin: 40px 0;
+        box-sizing: border-box;
+    }
+
+    .roadmap ul li:nth-child(odd){
+        float: center;
+        text-align: center;
+        clear: both;
+    }
+    .roadmap ul li:nth-child(even){
+        float: center;
+        text-align: center;
+        clear: both;
+    }
+    .roadmap ul li:nth-child(odd):before{
+        content: '';
+        position: absolute;
+        width: 4%;
+        height: width;
+        right: 48%;
+        top: -20px;
+    }
+    .roadmap ul li:nth-child(even):before{
+        content: '';
+        position: absolute;
+        width: 4%;
+        height: width;
+        left: 48%;
+        top: -20px;
+    }
+    .floating1{
+        display: none;
+    }
+    .floating2{
+        display: none;
+    }
+    .floating3{
+        display: none;
+    }
+    .floating4{
+        display: none;
+    }
+    .floating5{
+        display: none;
+    }
+    .triangle{
+        display: none;
+    }
+}
+

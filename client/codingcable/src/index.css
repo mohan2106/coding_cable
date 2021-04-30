@@ -1,13 +1,48 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'apercu';
+  src: url(./fonts/ApercuProLight.otf);
+  font-style: normal;
+  font-weight: 100;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'apercu';
+  src: url(./fonts/ApercuProMono.otf);
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'apercu';
+  src: url(./fonts/ApercuProRegular.otf) ;
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'apercu';
+  src: url(./fonts/ApercuProMedium.otf);
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'apercu';
+  src: url(./fonts/ApercuProBold.otf);
+  font-style: normal;
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'spacegrotesk';
+  src: url(./fonts/SpaceGroteskRegular.ttf);
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'spacegrotesk';
+  src: url(./fonts/SpaceGroteskMedium.ttf);
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'spacegrotesk';
+  src: url(./fonts/SpaceGroteskBold.ttf);
+  font-style: normal;
+  font-weight: 900;
 }
