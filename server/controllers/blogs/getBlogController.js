@@ -6,7 +6,15 @@ export const getBlog = (req, res, next) => {
   let id = new mongo.ObjectID(req.body.id);
   const collection = CC_DB_OBJ.collection("Blogs");
   collection
-    .findOne({ _id: id  },function (err, docs) {
+    .findOne({ _id: id  },{
+      UserName: 1,
+      UserImage: 1,
+      TitleImage: 1,
+      Title: 1,
+      TimeStamp: 1,
+      Content: 1,
+      Description: 1,
+    },function (err, docs) {
         log.info(docs);
         if (!docs) return res.status(404).send({ message: "blog not found" });
 
@@ -15,12 +23,4 @@ export const getBlog = (req, res, next) => {
     );
 };
 // .project(
-//   {
-//     UserName: 1,
-//     UserImage: 1,
-//     TitleImage: 1,
-//     Title: 1,
-//     Date: 1,
-//     Content: 1,
-//     Description: 1,
-//   },
+  
