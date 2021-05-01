@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import classes from './BlogEditor.module.css';
 import Editor from "rich-markdown-editor";
 import {light as Light,dark as Dark} from '../theme.ts';
+import axios from 'axios';
 
 const data =  {
   UserName: 'Mohan Kumar',
@@ -30,16 +31,40 @@ function BlogEditor() {
       setImagePreview(reader.result);
     }
     // setImagePreview(url);
+    setTitleImage('https://images.unsplash.com/photo-1619478691745-af923eed4601?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
     setTitleImage(file);
   }
   
   const uploadHandler = () => {
+    var data = JSON.stringify(
+        {
+            "Content":`${MDValue}`,
+            "Description":`${desc}`,
+            "Title": `${title}`,
+            "TitleImage":`${titleImage}`
+        }
+    );
+    var config = {
+        method: 'post',
+        url: 'http://localhost:4000/blogs/postBlog',
+        headers: { 
+          'Content-Type': 'application/json',
+        },
+        data : data
+      };
+    // props.Login(config);
+    axios(config).then(response => {
+      console.log(response.data);
+    }).catch(error => {
+      console.log(error.message);
+    });
 
   }
 
   const handleSubmit = () => {
     if(title.length >0 && desc.length >0 && titleImage !== null && MDValue.length >0 ){
       setFormValid(true);
+      uploadHandler();
     }else{
       setFormValid(false);
       console.log('Form is Invalid');
@@ -76,7 +101,7 @@ function BlogEditor() {
                 }}
                 onSave = { done => {console.log(MDValue);}}
                 theme = {Light}
-                onChange = {value => {setMDValue(value());}}
+                onChange = {value => {setMDValue(value()); }}
               />
             </div>
             <button className={classes.submit} onClick={handleSubmit}>Submit Blog</button>

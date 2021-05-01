@@ -2,7 +2,8 @@ import { log } from "../../index.js";
 import { CC_DB_OBJ } from "../../index.js";
 
 export const postBlog = (req, res, next) => {
-  const collection = CC_DB_OBJ.collection("Blogs");
+  const collection = CC_DB_OBJ.collection("Student");
+  const collection2= CC_DB_OBJ.collection("Blogs");
 
   var creationTimeStamp = Date.now();
   collection.findOne({ Email: req.body.emailId }, function (err, user) {
@@ -23,7 +24,7 @@ export const postBlog = (req, res, next) => {
       TextLength: req.body.Content.length,
     };
 
-    collection.insertOne(doc, function (err, result) {
+    collection2.insertOne(doc, function (err, result) {
       if (err) return res.status(500).send({ message: "Internal ServerError" });
 
       return res.status(200).send({ message: "Blog added Successfully" });

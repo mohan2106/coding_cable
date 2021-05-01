@@ -10,7 +10,9 @@ export const verifyToken = async (req, res, next) => {
     return res.status(403).send({ auth: false, message: "No token provided." });
 
   try {
+    console.log("\n\n\n\nToken: ",token,"\n\n\n\n")
     jsonwebtoken.verify(token, config_secret, (err, decoded) => {
+      console.log(err);
       if (err)
         return res
           .status(401)
