@@ -1,10 +1,10 @@
 import React from 'react';
 import  './ErrorPage.css'
 
-function ErrorPage() {
+function ErrorPage(props) {
     return (
         <div className="dog-center">
-            <h1 className="dog-title">PAGE NOT FOUND</h1>
+            <h1 className="dog-title">{props.message}</h1>
             <svg class="sausage-dog-animation" xmlns="http://www.w3.org/2000/svg" viewBox="-50 0 1200 1080">
   <ellipse class="shadow" ry="45" rx="350" cy="816" cx="498" opacity="1" fill="#B2CAE8" fill-opacity="1" stroke="#B2CAE8" stroke-width="4" />
   <path class="tail-blur" fill="#6f5a4b" d="M 180.265,568.972 14.092,504.432 C 40.893351,428.54412 92.941075,394.6756 159.419,390.74 l 29.972,170.684 c 1.155,6.575 -2.931,9.954 -9.126,7.548 z" opacity=".296" />
