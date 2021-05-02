@@ -43,9 +43,9 @@ export const login = (userData) => {
 // ========================================GET USER USING COOKIES===============
 
 export const getUser = () => {
-    return (dispatch)=>{
+    return async (dispatch)=>{
         dispatch(fetchUserRequest());
-        axios.post('http://localhost:4000/getuser')
+        await axios.post('http://localhost:4000/getuser')
         .then(response => {
             const users = response.data;
             console.log(users);

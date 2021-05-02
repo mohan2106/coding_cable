@@ -96,7 +96,9 @@
     height: 54px;
     border-radius: 27px;
   }
-  
+  .nav_btn{
+    padding: 8px 16px;
+  }
   @media screen and (max-width: 960px) {
     .NavbarItems {
       position: relative;

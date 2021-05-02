@@ -1,3 +1,12 @@
+.maincontainer{
+    margin: 100px auto;
+    width: 30%;
+    height: auto;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    background: #3B38F1;
+    padding:40px;
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -80,4 +89,10 @@
     font-weight: 500;
 }
 
-
+.switch_text{
+    color: white;
+    font-size: var(--font-xxs);
+}
+.switch_text:hover{
+    font-size: 20px;
+}

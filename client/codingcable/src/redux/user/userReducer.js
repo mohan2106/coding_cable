@@ -24,6 +24,7 @@ const userReducer = (state = initialState,action) => {
                 loading : false,
                 user : action.payload,
                 error : '',
+                isAuthenticated : true,
             }
         }
         case LOGIN_USER_FAILURE : {
@@ -31,6 +32,7 @@ const userReducer = (state = initialState,action) => {
                 loading : false,
                 error : action.payload,
                 user : {},
+                isAuthenticated:false,
             }
         }
         default : return state;

@@ -2,26 +2,34 @@ import React,{useState} from "react";
 import classes from './BlogEditor.module.css';
 import Editor from "rich-markdown-editor";
 import {light as Light,dark as Dark} from '../theme.ts';
+import { connect } from "react-redux";
 import axios from 'axios';
 
-const data =  {
-  UserName: 'Mohan Kumar',
-  UserImage: 'https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-  TitleImage: 'https://images.unsplash.com/photo-1619478691745-af923eed4601?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-  Title: 'Tim Cook’s 5-Word Response to Facebook Is Brutal and Brilliant at the Same Time',
-  Date: '25th Dec 2020',
-  // Content: 'Hello World2',
-  Content: '---    __Advertisement :)__\n - __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image \n  resize in browser. \n    - __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly \n   i18n with plurals support and easy syntax. \n    You will like those projects! \n  --- \n  # h1 Heading 8-) \n ## h2 Heading \n ### h3 Heading  \n   #### h4 Heading \n ##### h5 Heading \n  ###### h6 Heading \n',
-  Description:'Apple’s CEO is clear that he isn’t making decisions based on what’s best for Facebook, but for Apple and its customers',
-}
+// const data =  {
+//   UserName: 'Mohan Kumar',
+//   UserImage: 'https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+//   TitleImage: 'https://images.unsplash.com/photo-1619478691745-af923eed4601?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+//   Title: 'Tim Cook’s 5-Word Response to Facebook Is Brutal and Brilliant at the Same Time',
+//   Date: '25th Dec 2020',
+//   // Content: 'Hello World2',
+//   Content: '---    __Advertisement :)__\n - __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image \n  resize in browser. \n    - __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly \n   i18n with plurals support and easy syntax. \n    You will like those projects! \n  --- \n  # h1 Heading 8-) \n ## h2 Heading \n ### h3 Heading  \n   #### h4 Heading \n ##### h5 Heading \n  ###### h6 Heading \n',
+//   Description:'Apple’s CEO is clear that he isn’t making decisions based on what’s best for Facebook, but for Apple and its customers',
+// }
 
-function BlogEditor() {
+function BlogEditor(props) {
   const [title,setTitle] = useState('');
   const [desc,setDesc] = useState('');
   const [titleImage,setTitleImage] = useState(null);
   const [imagePreview,setImagePreview] = useState('');
   const [MDValue,setMDValue] = useState('');
   const [formValid,setFormValid] = useState(false);
+
+  if(!props.userData.isAuthenticated){
+    console.log("User is not logged in");
+    props.history.push('/signin');
+  }else{
+    console.log("User is logged in");
+  }
 
   const fileChangedHandler = (event) => {
     const file = event.target.files[0];
@@ -110,4 +118,11 @@ function BlogEditor() {
   );
 }
 
-export default BlogEditor;
+const mapStateToProps = state =>{
+  return {
+      userData: state.user,
+  }
+}
+
+
+export default connect(mapStateToProps,null)(BlogEditor);

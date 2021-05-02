@@ -42,13 +42,32 @@
 }
 .banner{
     width: 100%;
-    background: #1FABF1;
     text-align: center;
-    height: 300px;
 }
 .blogs{
     text-align: center;
-    margin: auto;
+    margin: 100px auto;
+}
+.banner_item1{
+    color: var(--color-blue);
+    font-family: apercu;
+    font-size: var(--font-xxxl);
+    font-weight: var(--font-w-dark);
+}
+.banner_item2{
+    border: 1px solid var(--color-blue);
+    padding: 5px 40px;
+    background-color: white;
+    border-radius: 20px;
+    height: 40px;
+    color: var(--color-blue);
+    font-size: var(--font-xxs);
+    cursor: pointer;
+}
+.banner_item2:hover{
+    border: none;
+    background-color: var(--color-blue);
+    color: white;
 }
 .blogImg{
     height: 300px;

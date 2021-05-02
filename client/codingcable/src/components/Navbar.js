@@ -5,8 +5,11 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import {IconContext} from 'react-icons/lib';
 import {Button} from './Button/Button.js';
 import classes from './Navbar.module.css';
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-function Navbar({showLink = true}) {
+const Navbar = ({showLink = true,userData})=> {
+    console.log("navbar userdata: ",userData);
     const [click,setClick] =  useState(false);
     const [button,setButton] =  useState(true);
     const handleClick = ()=>setClick(!click);
@@ -25,6 +28,10 @@ function Navbar({showLink = true}) {
         showButton();
     },[])
     window.addEventListener('resize',showButton);
+
+    const logout = () => {
+        console.log("Logout");
+    }
     return (
         <>
         <IconContext.Provider value={{color:'#6B25D0'}}>
@@ -35,13 +42,13 @@ function Navbar({showLink = true}) {
                         <img src={process.env.PUBLIC_URL + '/Images/logo.svg'} className={classes.navbar_icon} alt="logo" />
                         CODINGCABLE.COM
                     </Link>
-                    {showLink ? 
+                     
                     <div>
                         <div className={classes.menu_icon} onClick={handleClick}>
                         {click ? <FaTimes/> : <FaBars/>}
                         </div>
                         <ul className={click ? `${classes.nav_menu} ${classes.active}` : classes.nav_menu}>
-                            <li className={classes.nav_item}>
+                            {showLink ? <><li className={classes.nav_item}>
                                 <Link1 to='home' onClick={closeMobileMenu} className={classes.nav_links} smooth={true} duration={1000}>
                                     Home
                                 </Link1>
@@ -60,9 +67,10 @@ function Navbar({showLink = true}) {
                                 <Link to='/aboutus' onClick={closeMobileMenu} className={classes.nav_links}>
                                     About Us
                                 </Link>
-                            </li>
+                            </li></>:null}
                             <li className={classes.nav_btn} >
-                                {button ? (
+                                {!userData.isAuthenticated ? 
+                                <>{button ? (
                                     <Link to='/signin' className={classes.btn_link}>
                                         <Button buttonStyle='btn--rounded'>
                                             LogIn/SignUp
@@ -75,10 +83,19 @@ function Navbar({showLink = true}) {
                                                     SIGN IN
                                         </Button>
                                     </Link>
-                                )}
+                                )} </> : <>{button ? (
+                                        <Button buttonStyle='btn--rounded' onClick={logout}>
+                                            SIGN OUT
+                                        </Button>
+                                ):(
+                                        <Button buttonStyle='btn--outline'
+                                                buttonSize='btn--mobile' onClick={logout}>
+                                                    SIGN OUT
+                                        </Button>
+                                )} </>}
                             </li>
                         </ul> 
-                    </div>  : null}
+                    </div> 
                 </div> 
             </div>
             </IconContext.Provider>
@@ -86,4 +103,13 @@ function Navbar({showLink = true}) {
     )
 }
 
-export default Navbar
+Navbar.propTypes = {
+    auth: PropTypes.object.isRequired
+  };
+
+const mapStateToProps = state =>({
+        userData: state.user,
+  });
+  
+
+export default connect(mapStateToProps,null)(Navbar);

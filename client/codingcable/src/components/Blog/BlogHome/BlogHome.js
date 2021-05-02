@@ -1,8 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import classes from './BlogHome.module.css';
 import loadingclass from './loading.module.css';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import {Link} from 'react-router-dom';
 import ErrorPage from '../../ErrorPage/ErrorPage'; 
+import { connect } from "react-redux";
 import axios from 'axios';
 
 
@@ -28,11 +30,19 @@ const Single = (props) => {
     );
 }
 
-const BlogBanner = ()=>{
+const BlogBanner = ({user})=>{
     return (
         <div className={classes.banner}>
             <div className={classes.blogs}>
-                <img className={classes.blogImg} src={process.env.PUBLIC_URL + "/Images/BlogHeader.jpg"} alt="blogimage"/>
+                <div className={classes.banner_item1}>BLOGS</div>
+                <div>
+                {user.isAuthenticated ? 
+                <Link to='/blogs/addblog' style={{ textDecoration: 'none' }}>
+                    <button className={classes.banner_item2}>Add Blog</button>
+                </Link>
+                    
+                     : null}
+                </div>
             </div>
         </div>
     );
@@ -51,7 +61,7 @@ const SingleLoading = () => {
     );
 }
 const Loading = () => {
-    const data = [0,1,2,3,4,5,6,7,8,9].map(i=>{
+    const data = [0,1,2].map(i=>{
         return <SingleLoading/>;
     })
     return (
@@ -68,18 +78,59 @@ function BlogHome(props) {
     const [loading,setLoading] = useState(false);
     const [blogs,setBlogs] = useState({});
     const [error,setError] = useState('');
-    const [blogComponent,setBlogComponent] = useState(null);
-    // console.log('Props called',props.blogData);
-    // if(blogData === ''){
-    //     
-    // }
-    // setBlog(props.blogData);
+    const [blogComponent,setBlogComponent] = useState([]);
+    const [hasmore,setHasmore] = useState(true);
+    
+    
+
+    const fetchMoreData = () => {
+        console.log("Fetch More called");
+        if(blogComponent.length < 10*index){
+            return;
+        }
+        
+        if(!hasmore){
+            console.log("No more data to fetch")
+            return;
+        }else{
+            console.log("Data left index:",index);
+                const jsondata = JSON.stringify(
+                    {
+                        "st":10*index,
+                        "end":(10*(index+1)-1)
+                    }
+                );
+                console.log(jsondata);
+                const config = {
+                    method: 'post',
+                    url: 'http://localhost:4000/blogs/getRange',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                    },
+                    data : jsondata  
+                };
+                blogFetch();
+                axios(config)
+                .then(response => {
+                    const blogDetail = response.data;
+                    console.log(blogDetail);
+                    blogSuccess(blogDetail);
+                }).catch(error => {
+                    const errorMsg = error.message;
+                    blogFailure(errorMsg);
+                    console.log(errorMsg);
+                })
+                setIndex(index+1);
+        }
+        
+    };
+
     
     const blogFetch = () => {
         setLoading(true);
         setBlogs({});
         setError('');
-        setBlogComponent(Loading())
+        setBlogComponent([])
     }
     const blogSuccess = (data) => {
         setLoading(false);
@@ -91,25 +142,28 @@ function BlogHome(props) {
                 <Single {...d}/>
             </Link>);
         });
-        // setBlogComponent(Loading())
-        setBlogComponent(dataList);
+        if(dataList.length < 10){
+            console.log("No More data");
+            setHasmore(false);
+        }
+        setBlogComponent(blogComponent.concat(dataList));
     }
     const blogFailure = (data) => {
         setLoading(false);
         setBlogs({});
         setError(data);
-        
-        setBlogComponent(<ErrorPage message={data}/>);
+        setBlogComponent([]);
     }
 
     useEffect(() => {
-        var data = JSON.stringify(
+        const data = JSON.stringify(
             {
                 "st":10*index,
                 "end":(10*(index+1)-1)
             }
         );
-        var config = {
+        console.log(data);
+        const config = {
             method: 'post',
             url: 'http://localhost:4000/blogs/getRange',
             headers: { 
@@ -128,16 +182,38 @@ function BlogHome(props) {
             blogFailure(errorMsg);
             console.log(errorMsg);
         })
-        
+        setIndex(index+1);
     }, [])
     
     return (
         <div className={classes.container}  >
-            <BlogBanner/>
+            <BlogBanner user={props.userData}/>
             <div className={classes.blogsContainer}></div>
-            {blogComponent}
+            {/* {blogComponent} */}
+            <InfiniteScroll
+                dataLength={blogComponent.length}
+                next={fetchMoreData}
+                hasMore={hasmore}
+                loader={Loading()}
+                endMessage={
+                    <p style={{ textAlign: "center" }}>
+                      <b>No More Blogs</b>
+                    </p>
+                  }
+                >
+                {blogComponent}
+            </InfiniteScroll>
         </div>
     )
 }
 
-export default BlogHome
+
+const mapStateToProps = state =>{
+    return {
+        userData: state.user,
+    }
+  }
+  
+  
+export default connect(mapStateToProps,null)(BlogHome);
+ 

@@ -3,6 +3,7 @@ import classes from './Login.module.css';
 import * as axios from "axios";
 import {login} from '../../redux/index';
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom';
 
 
 function ValidationMessage(props) {
@@ -77,33 +78,43 @@ const Login = (props) => {
             data : data
           };
         props.Login(config);
-        
     }
+
+    if (props.userData.isAuthenticated === true) {
+        console.log("User is logged in ")
+        props.history.push("/blogs");
+      }else{
+          console.log(props);
+      }
     
     return (
-        <div className={classes.container}>
-            <div className={classes.heading}>
-                <h2>Sign In</h2>
-                <h4>Welcome Back Coder. SignIn and resume your learning.</h4>
+        <div className={classes.maincontainer}>
+            <div className={classes.container}>
+                <div className={classes.heading}>
+                    <h2>Sign In</h2>
+                    <h4>Welcome Back Coder. SignIn and resume your learning.</h4>
+                </div>
+                <form onSubmit={LoginUser} id='js-form' className={classes.form}>
+                    <div className={classes.form_group}>
+                        <label className={classes.label} htmlFor='email'>Email</label>
+                        < ValidationMessage valid={emailValid} message={errorMessage.email} />
+                        <input type='email' id='email' name='email' className={classes.form_field}
+                        value={email} onChange={(e) => updateEmail(e.target.value)} placeholder='Enter email'/>
+                    </div>
+                    <div className={classes.form_group}>
+                        <label className={classes.label} htmlFor='password'>Password</label>
+                        < ValidationMessage valid={passwordValid} message={errorMessage.password} />
+                        <input type='password' id='password' name='password' className={classes.form_field}
+                        value={password} onChange={(e) => updatePassword(e.target.value)} placeholder='Password'/>
+                    </div>
+                    <div className='form-controls'>
+                        <button className={classes.btn} type='submit' disabled={!formValid} onClick={LoginUser}>Sign In</button>
+                    </div>
+                </form>
+                <Link to='/signup' style={{textDecoration:"none"}}>
+                    <p className={classes.switch_text}>Don't have account? Register now</p>
+                </Link>
             </div>
-            <form onSubmit={LoginUser} id='js-form' className={classes.form}>
-                <div className={classes.form_group}>
-                    <label className={classes.label} htmlFor='email'>Email</label>
-                    < ValidationMessage valid={emailValid} message={errorMessage.email} />
-                    <input type='email' id='email' name='email' className={classes.form_field}
-                    value={email} onChange={(e) => updateEmail(e.target.value)} placeholder='Enter email'/>
-                </div>
-                <div className={classes.form_group}>
-                    <label className={classes.label} htmlFor='password'>Password</label>
-                    < ValidationMessage valid={passwordValid} message={errorMessage.password} />
-                    <input type='password' id='password' name='password' className={classes.form_field}
-                    value={password} onChange={(e) => updatePassword(e.target.value)} placeholder='Password'/>
-                </div>
-                <div className='form-controls'>
-                    <button className={classes.btn} type='submit' disabled={!formValid} onClick={LoginUser}>Book Trial Class</button>
-                </div>
-            </form>
-                
         </div>
     );
 }

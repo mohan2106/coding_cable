@@ -60,6 +60,7 @@ function SingleBlog(props) {
     const [loading,setLoading] = useState(false);
     const [data,setData] = useState({});
     const [error,setError] = useState('');
+    const [Content,setContent] = useState('');
     // console.log('Props called',props.blogData);
     // if(blogData === ''){
     //     
@@ -71,12 +72,14 @@ function SingleBlog(props) {
         setError('');
     }
     const blogSuccess = (data) => {
-        setLoading(false);
         const date = new Date(data.TimeStamp);
         const stringdate = date.toDateString();
         setData({...data,
             TimeStamp:stringdate});
         setError('');
+        setContent(data.Content);
+        // console.log(data.Content);
+        setLoading(false);
     }
     const blogFailure = (data) => {
         setLoading(false);
@@ -126,27 +129,28 @@ function SingleBlog(props) {
             <div>
                 {error.length !== 0 ? <ErrorPage message="PAGE NOT FOUND"/> : 
                 <div>
-                <div className={classes.title}>{data.Title}</div>
-                <div className={classes.desc}>{data.Description}</div>
-                <div className={classes.user}>
-                    <div className={classes.item1}>
-                        <img className={classes.userImage} src={data.UserImage} alt="img"/>
+                    <div className={classes.title}>{data.Title}</div>
+                    <div className={classes.desc}>{data.Description}</div>
+                    <div className={classes.user}>
+                        <div className={classes.item1}>
+                            <img className={classes.userImage} src={data.UserImage} alt="img"/>
+                        </div>
+                        <div className={classes.item2}>
+                            <div className={classes.username}>{data.UserName}</div>
+                            <div className={classes.date}>{data.TimeStamp}</div>
+                        </div>
                     </div>
-                    <div className={classes.item2}>
-                        <div className={classes.username}>{data.UserName}</div>
-                        <div className={classes.date}>{data.TimeStamp}</div>
+                    <div >
+                        <img className={classes.titleimage} src={data.TitleImage} alt="title-img"/>
                     </div>
-                </div>
-                <div >
-                    <img className={classes.titleimage} src={data.TitleImage} alt="title-img"/>
-                </div>
-                <div className={classes.content}>
-                    <Editor 
-                        defaultValue={data.Content}
-                        readOnly={true}
-                        theme = {Light}
-                    />
-                </div>
+                    {/* {data.Content} */}
+                    <div className={classes.content}>
+                        <Editor 
+                            defaultValue={Content}
+                            readOnly={true}
+                            theme = {Light}
+                        />
+                    </div>
                 </div>}
             </div>}
         </div>

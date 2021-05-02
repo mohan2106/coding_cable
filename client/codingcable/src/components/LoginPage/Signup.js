@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import classes from './Login.module.css';
 import * as axios from "axios";
+import {Link} from 'react-router-dom';
 
 function ValidationMessage(props) {
     if (!props.valid) {
@@ -142,55 +143,59 @@ const SignUp = (props) => {
         
     }
     return (
-        <div className={classes.container}>
-            <div className={classes.heading}>
-                <h2>Sign Up</h2>
-                <h4>Get started with us today! Create your account by filling out the information below.</h4>
+        <div className={classes.maincontainer}>
+            <div className={classes.container}>
+                <div className={classes.heading}>
+                    <h2>Sign Up</h2>
+                    <h4>Get started with us today! Create your account by filling out the information below.</h4>
+                </div>
+                <form onSubmit={SignUpUser} id='js-form' className={classes.form}>
+                    <div className={classes.form_group}>
+                        <label className={classes.label} htmlFor='username'>Student Name</label>
+                        < ValidationMessage valid={nameValid} message={errorMessage.name} />
+                        <input type='text' id='username' name='username' className={classes.form_field}
+                        value={name} onChange={(e) => updateName(e.target.value)} placeholder='Enter student name'/>
+                    </div>
+                    <div className={classes.form_group}>
+                        <label className={classes.label} htmlFor='email'>Email</label>
+                        < ValidationMessage valid={emailValid} message={errorMessage.email} />
+                        <input type='email' id='email' name='email' className={classes.form_field}
+                        value={email} onChange={(e) => updateEmail(e.target.value)} placeholder='Enter email'/>
+                    </div>
+                    <div className={classes.phoneclass}>
+                        <div className={classes.form_group1}>
+                            <label className={classes.label} htmlFor='phone'>Phone</label>
+                            < ValidationMessage valid={phoneValid} message={errorMessage.phone} />
+                            <input type='phone' id='phone' name='phone' className={classes.form_field} 
+                            value={phone} onChange={(e) => updatePhone(e.target.value)} placeholder='Enter Phone Number'/>
+                        </div>
+                        <div className={classes.form_group2}>
+                            <label className={classes.label} htmlFor='standard'>Class</label>
+                            < ValidationMessage valid={standardValid} message={errorMessage.standard}/>
+                            <input type='text' id='standard' name='standard' className={classes.form_field}
+                            value={standard} onChange={(e) => updateStandard(e.target.value)} placeholder='class'/>
+                        </div>
+                    </div>
+                    <div className={classes.form_group}>
+                        <label className={classes.label} htmlFor='password'>Password</label>
+                        < ValidationMessage valid={passwordValid} message={errorMessage.password} />
+                        <input type='password' id='password' name='password' className={classes.form_field}
+                        value={password} onChange={(e) => updatePassword(e.target.value)} placeholder='Password'/>
+                    </div>
+                    <div className={classes.form_group}>
+                        <label className={classes.label} htmlFor='password'>Confirm Password</label>
+                        < ValidationMessage valid={cnfpasswordValid} message={errorMessage.cnfpassword}/>
+                        <input type='password' id='confirm_password' name='cnfpassword' className={classes.form_field}
+                        value={cnfpassword} onChange={(e) => updateCnfPassword(e.target.value)} placeholder='Confirm Password'/>
+                    </div>
+                    <div className='form-controls'>
+                        <button className={classes.btn} type='submit' disabled={!formValid}>Book Trial Class</button>
+                    </div>
+                </form>  
+                <Link to='/signin' style={{textDecoration:"none"}}>
+                    <p className={classes.switch_text}>Already have account? Login now</p>
+                </Link>  
             </div>
-            <form onSubmit={SignUpUser} id='js-form' className={classes.form}>
-                <div className={classes.form_group}>
-                    <label className={classes.label} htmlFor='username'>Student Name</label>
-                    < ValidationMessage valid={nameValid} message={errorMessage.name} />
-                    <input type='text' id='username' name='username' className={classes.form_field}
-                    value={name} onChange={(e) => updateName(e.target.value)} placeholder='Enter student name'/>
-                </div>
-                <div className={classes.form_group}>
-                    <label className={classes.label} htmlFor='email'>Email</label>
-                    < ValidationMessage valid={emailValid} message={errorMessage.email} />
-                    <input type='email' id='email' name='email' className={classes.form_field}
-                    value={email} onChange={(e) => updateEmail(e.target.value)} placeholder='Enter email'/>
-                </div>
-                <div className={classes.phoneclass}>
-                    <div className={classes.form_group1}>
-                        <label className={classes.label} htmlFor='phone'>Phone</label>
-                        < ValidationMessage valid={phoneValid} message={errorMessage.phone} />
-                        <input type='phone' id='phone' name='phone' className={classes.form_field} 
-                        value={phone} onChange={(e) => updatePhone(e.target.value)} placeholder='Enter Phone Number'/>
-                    </div>
-                    <div className={classes.form_group2}>
-                        <label className={classes.label} htmlFor='standard'>Class</label>
-                        < ValidationMessage valid={standardValid} message={errorMessage.standard}/>
-                        <input type='text' id='standard' name='standard' className={classes.form_field}
-                        value={standard} onChange={(e) => updateStandard(e.target.value)} placeholder='class'/>
-                    </div>
-                </div>
-                <div className={classes.form_group}>
-                    <label className={classes.label} htmlFor='password'>Password</label>
-                    < ValidationMessage valid={passwordValid} message={errorMessage.password} />
-                    <input type='password' id='password' name='password' className={classes.form_field}
-                    value={password} onChange={(e) => updatePassword(e.target.value)} placeholder='Password'/>
-                </div>
-                <div className={classes.form_group}>
-                    <label className={classes.label} htmlFor='password'>Confirm Password</label>
-                    < ValidationMessage valid={cnfpasswordValid} message={errorMessage.cnfpassword}/>
-                    <input type='password' id='confirm_password' name='cnfpassword' className={classes.form_field}
-                    value={cnfpassword} onChange={(e) => updateCnfPassword(e.target.value)} placeholder='Confirm Password'/>
-                </div>
-                <div className='form-controls'>
-                    <button className={classes.btn} type='submit' disabled={!formValid}>Book Trial Class</button>
-                </div>
-            </form>
-                
         </div>
     );
 }
