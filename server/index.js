@@ -7,7 +7,12 @@ import loginRouter from "./routes/login.js";
 import homeRouter from "./routes/home.js";
 import blogRouter from "./routes/blogs.js";
 import getuserRouter from "./routes/getuser.js";
+import uploadRouter from "./routes/upload.js";
 // import registerRouter from "./routes/register.js";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+
 import cookieParse from "cookie-parser";
 import { body, checkSchema } from "express-validator";
 import { validate } from "./middlewares/validatorHandler.js";
@@ -35,6 +40,20 @@ export const CC_DB_OBJ = client.db("CC_DB1");
 const collection = client.db("CC_DB1").collection("Student");
 log.info("Connected to DB");
 
+var firebaseConfig = {
+  apiKey: "AIzaSyAobNlrUB5pLau-Hh8HAigkpeAcmwNjVsw",
+  authDomain: "codingcablestorage.firebaseapp.com",
+  projectId: "codingcablestorage",
+  storageBucket: "codingcablestorage.appspot.com",
+  messagingSenderId: "105732067704",
+  appId: "1:105732067704:web:0f89355e9d00a70236388d"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+export const storageRef = firebase.storage();
+
+log.info("Connected to Firebase");
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParse());
@@ -60,6 +79,7 @@ app.use(verifyToken);
 //   });
 // });
 app.use("/getuser",getuserRouter);
+app.use("/upload",uploadRouter);
 
 // HTTP Server
 const server = http.createServer(app);
