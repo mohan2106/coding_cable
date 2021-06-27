@@ -1,0 +1,151 @@
+.singlerow {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  background: #ffffff;
+  box-shadow: 0px 0px 12px rgba(15, 12, 184, 0.08);
+  border-radius: 12px;
+  margin-top: 17px;
+  margin-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.name {
+  width: auto;
+  height: fit-content;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 100%;
+  color: #3b38f1;
+  flex-grow: 0;
+  margin: 19px;
+}
+.batch {
+  justify-content: center;
+  align-items: center;
+  padding: 8px 32px;
+  width: fit-content;
+  height: fit-content;
+  background: #f3f3fc;
+  border-radius: 32px;
+  margin-right: auto;
+}
+.about {
+  width: auto;
+  max-width: 448px;
+  height: fit-content;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 140%;
+  color: #3d3d5b;
+  margin: 16px 12px;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.deadline {
+  display: flex;
+  width: auto;
+  height: fit-content;
+  background: #f3f3fc;
+  border-radius: 32px;
+  margin: 16px 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 32px;
+}
+.day,
+.month,
+.year,
+.quiztime {
+  height: auto;
+  font-family: Space Grotesk;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 100%;
+  color: #2c2ab7;
+  margin-left: 5px;
+}
+
+.timer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+  height: fit-content;
+  background: #f3f3fc;
+  border-radius: 32px;
+  margin-top: 15px;
+  padding: 4px 55px;
+}
+.time {
+  width: auto;
+  height: auto;
+  font-family: Space Grotesk;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 100%;
+  color: #2c2ab7;
+  margin-left: 5px;
+}
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 60px;
+  width: fit-content;
+  height: fit-content;
+  background: linear-gradient(90.4deg, #9850ff 0.61%, #3b38f1 93.64%);
+  border-radius: 645px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 778px) {
+  .singlerow {
+    flex-direction: column;
+  }
+  .topline {
+    flex-direction: column;
+  }
+  .about {
+    width: auto;
+    max-width: 318px;
+    margin: 8px;
+    margin-top: 28px;
+  }
+  .name {
+    font-size: 32px;
+  }
+  .batch {
+    margin-left: 25px;
+    padding: 5px 32px;
+  }
+  .deadline {
+    padding: 10px 100px;
+  }
+  .timer {
+    padding: 8px 125px;
+  }
+  .btn {
+    padding: 20px 140px;
+    width: auto;
+    max-width: 318px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+}

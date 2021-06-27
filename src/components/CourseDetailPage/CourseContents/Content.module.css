@@ -1,0 +1,110 @@
+.container{
+    margin: 0;
+    padding: 0 80px 80px 80px;
+    font-family: apercu;
+    font-weight: 500;
+}
+.title{
+    text-align: center;
+    font-size: 48px;
+    font-family: apercu;
+    font-weight: 500;
+    color: var(--color-blue);
+}
+.header{
+    width: 80%;
+    margin: 36px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.name{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.name1{
+    font-size: 32px;
+}
+.name2{
+    font-size: 16px;
+}
+
+.download{
+    width:auto;
+}
+.downloadbtn{
+    padding: 16px 48px;
+    border: none;
+    border-radius: 27px;
+    background-color: var(--color-grey);
+    color: var(--color-voilet);
+    font-family: apercu;
+    font-weight: 900;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.downloadbtn:hover{
+    background: linear-gradient(90.0deg, #9850FF 0.61%, #3B38F1 93.64%);
+    color: #fff;
+    transition: all 0.3s ease-out;
+}
+.downloadbtn p{
+    margin-left: 10px;
+}
+.modules{
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1200px){
+    .container{
+        padding: 40px;
+    }
+    .header{
+        width: 100%;
+    }
+    .modules{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 760px){
+    .container{
+        padding: 0 40px 40px 40px;
+    }
+    .header{
+        width: 100%;
+        flex-direction: column;
+    }
+    .title{
+        font-size: 32px;
+    }
+    .name{
+        text-align: center;
+        width: 100%;
+    }
+    .name1{
+        font-size: 24px;
+    }
+    .download{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .downloadbtn{
+        padding: 16px 0;
+        text-align: center;
+    }
+    
+}
+
+

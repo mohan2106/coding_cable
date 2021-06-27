@@ -1,0 +1,136 @@
+.row {
+  width: 100%;
+  margin:0 auto;
+  text-align: center;
+  margin-bottom: 61px;
+  margin-top: 81px;
+}
+
+.col {
+  width: fit-content;
+  height: fit-content;
+  padding: 0 20px 20px;
+  background: #3b38f1;
+  border-radius: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mincol {
+  display: flex;
+}
+.title {
+  flex: 1;
+  width: auto;
+  height: auto;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 105%;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  flex: none;
+  margin-top: auto;
+}
+
+.viewassign {
+  flex: 2;
+  width: auto;
+  height: auto;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 105%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 32px;
+  margin-left: 5cm;
+}
+.floating1 {
+  z-index: -1;
+  position: absolute;
+  display: grid;
+  width: 126.47px;
+  height: 126.47px;
+  right: 27%;
+  top: 97%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ff4181 40.63%, #843561 79.49%);
+  transform: matrix(-0.11, 0.99, 0.99, 0.11, 0, 0);
+}
+
+.floating3 {
+  position: absolute;
+  width: 73.55px;
+  height: 67.56px;
+  left: 25%;
+  background: linear-gradient(180deg, #7acbff 20.91%, #45a2e0 61.13%);
+  border-radius: 12px;
+  transform: matrix(0.92, 0.4, 0.4, -0.92, 0, 0);
+}
+.floating2 {
+  position: absolute;
+  left: 25%;
+  top: 110%;
+}
+.floating4 {
+  position: absolute;
+  right: 25%;
+}
+
+@media screen and (max-width: 1500px) {
+  .floating1 {
+    display: none;
+  }
+  .floating2 {
+    display: none;
+  }
+  .floating3 {
+    display: none;
+  }
+  .floating4 {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .floating1 {
+    display: none;
+  }
+  .floating2 {
+    display: none;
+  }
+  .floating3 {
+    display: none;
+  }
+  .floating4 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 778px) {
+  .floating1 {
+    display: none;
+  }
+  .floating2 {
+    display: none;
+  }
+  .floating3 {
+    display: none;
+  }
+  .floating4 {
+    display: none;
+  }
+  .viewassign {
+    display: none;
+  }
+  .row{
+    margin-top: 32px;
+  }
+  .title {
+    font-size: 36px;
+    margin: 24px 0px;
+    align-items: center;
+  }
+}

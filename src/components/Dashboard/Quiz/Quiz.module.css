@@ -1,0 +1,101 @@
+.row {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 81px;
+}
+.col {
+  width: fit-content;
+  height: fit-content;
+  padding: 0 20px 20px;
+  background: #3b38f1;
+  border-radius: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mincol {
+  display: flex;
+}
+.title {
+  flex: 1;
+  width: auto;
+  height: auto;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 105%;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  flex: none;
+  margin-top: auto;
+}
+
+.viewquiz {
+  flex: 2;
+  width: auto;
+  height: auto;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 105%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 32px;
+  margin-left: 5cm;
+}
+
+.floating1 {
+  z-index: -1;
+  position: absolute;
+  width: 96.98px;
+  height: 96.98px;
+  border-radius: 50%;
+  left: 25%;
+  background: linear-gradient(180deg, #ff4181 40.63%, #843561 79.49%);
+  transform: rotate(83.62deg);
+}
+.floating2 {
+  position: absolute;
+  width: 77.96px;
+  height: 71.61px;
+  right: 28%;
+  background: linear-gradient(137.8deg, #e4e08e 16.28%, #6fa953 61.81%);
+  border-radius: 16px;
+  transform: rotate(156.67deg);
+  
+}@media screen and (max-width: 1500px) {
+  .floating1 {
+    display: none;
+  }
+  .floating2 {
+    display: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .floating1 {
+    display: none;
+  }
+  .floating2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 778px) {
+  .floating1 {
+    display: none;
+  }
+  .floating2 {
+    display: none;
+  }
+  .viewquiz {
+    display: none;
+  }
+  .title {
+    font-size: 36px;
+    margin: 24px 0px;
+    align-items: center;
+  }
+}

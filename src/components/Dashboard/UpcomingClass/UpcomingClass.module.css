@@ -1,0 +1,237 @@
+.row {
+  max-width: 1300px;
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  justify-content: space-evenly;
+  height: fit-content;
+  margin-bottom: 40px;
+}
+.col1 {
+  padding: 32px;
+  width: fit-content;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
+  border-radius: 16px;
+  padding-bottom: 3.5cm;
+}
+
+.col2 {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: auto;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding: 15px;
+}
+.heading {
+  width: auto;
+  height: fit-content;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 105%;
+  letter-spacing: -0.02em;
+  color: #3b38f1;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+.border {
+  width: 500px;
+  height: 0px;
+  margin-top: 22px;
+  border: 2px solid #dbdbdb;
+}
+
+.class_detail {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.detailclass,
+.teacherdetail {
+  padding: 20px;
+}
+
+.class_name {
+  width: fit-content;
+  height: fit-content;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 105%;
+  letter-spacing: -0.02em;
+  color: #3b38f1;
+  margin-bottom: 23px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.batch,
+.date {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  width: auto;
+  height: fit-content;
+  background: #f3f3fc;
+  border-radius: 32px;
+  color: #2c2ab7;
+}
+.space {
+  margin-left: 5px;
+}
+
+.date {
+  margin-top: 16px;
+}
+
+.joinbtn {
+  justify-content: center;
+  align-items: center;
+  padding: 20px 77px;
+  width: auto;
+  height: fit-content;
+  background: linear-gradient(90.4deg, #9850ff 0.61%, #3b38f1 93.64%);
+  border-radius: 645px;
+  margin-top: 20px;
+}
+
+.border1 {
+  width: 230px;
+  height: 0px;
+  border: 2px solid #dbdbdb;
+  transform: rotate(90deg);
+  margin-left: 190.93px;
+  margin-top: -115px;
+}
+
+.teacher {
+  width: fit-content;
+  height: fit-content;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 105%;
+  letter-spacing: -0.02em;
+  color: #3b38f1;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.img {
+  width: auto;
+  height: auto;
+  background: #c4c4c4;
+  margin-bottom: 23px;
+}
+.teachername {
+  width: 131.5px;
+  height: fit-content;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 105%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #3b38f1;
+}
+
+.yourcourse {
+  width: auto;
+  height: fit-content;
+  font-family: Apercu Pro;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 105%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #3b38f1;
+}
+
+.coursebox {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
+  border-radius: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 16px;
+  width: 100%;
+  height: fit-content;
+}
+.batch1,
+.coursename {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  width: 258.05px;
+  height: 35px;
+  background: #f3f3fc;
+  border-radius: 32px;
+  color: #2c2ab7;
+}
+.batch1 {
+  margin-top: 16px;
+}
+
+@media screen and (max-width: 778px) {
+  .heading {
+    font-size: 24px;
+  }
+  .border {
+    width: auto;
+    margin-left: auto;
+  }
+  .class_name {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .teacherdetail,
+  .detailclass {
+    padding: 10px;
+  }
+  .batch,
+  .date {
+    width: auto;
+    height: fit-content;
+  }
+  .batch {
+    margin-bottom: 10px;
+  }
+  .border1 {
+    width: 155.77px;
+    margin-left: 155px;
+  }
+  .teacher {
+    font-size: 18px;
+    margin-bottom: 11px;
+  }
+  .img {
+    margin-bottom: 15px;
+  }
+  .teachername {
+    width: auto;
+    font-size: 14px;
+  }
+  .yourcourse {
+    margin-bottom: 15px;
+  }
+  .coursebox {
+    margin-bottom: 10px;
+  }
+}
